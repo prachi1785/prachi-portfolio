@@ -1615,9 +1615,22 @@
                           </div>
                         </div>
                       </section>
-
-
-
+                      {/* PROFILE PHOTO CARD */}
+                      <section className="card-container text-left entrance-card stagger-2 flex flex-col justify-between items-center p-6 bg-sky-50 shadow-sm relative overflow-hidden min-h-[360px]" data-purpose="photo-section">
+                        <div className="pixel-cloud" style={{ width: goalsClouds[4].width, height: goalsClouds[4].height, top: `${goalsClouds[4].top}%`, left: `${goalsClouds[4].left}%` }}></div>
+                        
+                        <h2 className="pixel-header font-bold text-pixelDarkBlue uppercase tracking-wide w-full mb-4">PROFILE PHOTO</h2>
+                        
+                        <div className="flex-grow flex items-center justify-center relative select-none z-10 mb-2">
+                          <div className="w-40 h-40 bg-white border-4 border-pixelDarkBlue rounded-full overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,0.15)] relative hover:scale-105 transition-transform duration-300">
+                            <img 
+                              src="profile_avatar.jpg" 
+                              alt="Prachi Chauhan"
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </div>
+                      </section>
                       {/* CAPABILITIES & LEADERSHIP PROFILE */}
                       <section className="card-container text-left col-span-1 md:col-span-2 entrance-card stagger-3" data-purpose="recruiter-skill-leadership-merge">
                         <h2 className="pixel-header font-bold text-pixelDarkBlue uppercase tracking-wide">
