@@ -5,19 +5,14 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Prachi Chauhan | Business Analyst & Web Developer Portfolio</title>
   
-  <!-- GSAP Core for smooth spring transforms & animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  
-  <!-- Lenis for smooth scrolling -->
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   
-  <!-- Google Fonts for Pixel Art Recreation -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Font: Press Start 2P (Fallback/Legacy) -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet"/>
+  
+  <!-- Pixeloid Sans Font from CDN -->
+  <link href="https://fonts.cdnfonts.com/css/pixeloid-sans" rel="stylesheet"/>
   
   <!-- Tailwind Config Customizations -->
   <script>
@@ -25,8 +20,7 @@
       theme: {
         extend: {
           fontFamily: {
-            pixel: ['"Pixelify Sans"', 'system-ui', 'sans-serif'],
-            mono: ['"Pixelify Sans"', 'monospace'],
+            pixel: ['system-ui', '-apple-system', 'sans-serif'],
           },
           colors: {
             pixelBlue: '#d6e4ff',
@@ -51,9 +45,8 @@
       margin: 0 !important;
       padding: 0 !important;
       width: 100% !important;
-      min-height: 100% !important;
+      height: 100% !important;
       overflow-x: hidden !important;
-      overflow-y: auto !important;
     }
 
     * {
@@ -198,21 +191,14 @@
       transform: rotateY(180deg);
     }
 
-    /* Premium Clean Entrances for Recruiters */
+    /* Premium Modern Spring Entrances for Recruiters */
     @keyframes spring-up {
-      0% { 
-        opacity: 0; 
-        transform: translateY(12px) scale(0.99); 
-        filter: blur(4px); 
-      }
-      100% { 
-        opacity: 1; 
-        transform: translateY(0) scale(1); 
-        filter: blur(0); 
-      }
+      0% { opacity: 0; transform: translateY(24px) scale(0.96); }
+      70% { transform: translateY(-3px) scale(1.008); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
     }
     .entrance-card {
-      animation: spring-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: spring-up 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
       opacity: 0;
     }
     .stagger-1 { animation-delay: 0ms; }
@@ -222,102 +208,17 @@
     .stagger-5 { animation-delay: 200ms; }
     .stagger-6 { animation-delay: 250ms; }
 
-    /* 3D Tilt Card and Parallax styling */
-    .tilt-card {
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-      will-change: transform, box-shadow;
-    }
-    .tilt-card-inner {
-      transform: translateZ(20px);
-      transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    
-    /* Subtle background ambient overlay styling */
-    .premium-bg-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.035) 0%, transparent 60%);
-      transition: background 0.15s ease;
-    }
-    
-    /* Light sweep overlay to reflect cursor hover direction */
-    .light-sweep {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 50;
-      mix-blend-mode: overlay;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      border-radius: inherit;
-    }
-    .tilt-card:hover .light-sweep {
-      opacity: 1;
-    }
-    
-    /* Cursor follower glow element */
-    .cursor-glow {
-      position: fixed;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(0, 48, 135, 0.03) 0%, rgba(0, 48, 135, 0) 70%);
-      border-radius: 50%;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
-      will-change: transform;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-    .cursor-glow.active {
-      opacity: 1;
-    }
-
-    /* Premium 3D perspective space transitions */
+    /* Fluid cross-dissolve transitions */
     .workspace-fade {
-      transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-      will-change: opacity, transform, filter;
+      transition: opacity 0.22s ease-out, transform 0.22s ease-out;
     }
     .workspace-fade-hidden {
       opacity: 0;
-      transform: perspective(1500px) translateZ(-40px) translateY(12px) rotateX(2deg);
-      filter: blur(4px);
+      transform: scale(0.985) translateY(8px);
     }
     .workspace-fade-visible {
       opacity: 1;
-      transform: perspective(1500px) translateZ(0px) translateY(0px) rotateX(0deg);
-      filter: blur(0);
-    }
-
-    /* 3D Hinged Drop for Navigation Bar */
-    @keyframes navbar-drop-3d {
-      0% {
-        opacity: 0;
-        transform: translateY(-85px) rotateX(-35deg) scale(0.95);
-        filter: blur(10px);
-      }
-      60% {
-        transform: translateY(5px) rotateX(4deg) scale(1.01);
-        filter: blur(2px);
-      }
-      85% {
-        transform: translateY(-2px) rotateX(-1deg) scale(0.998);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) rotateX(0deg) scale(1);
-        filter: blur(0);
-      }
-    }
-    .navbar-3d-entrance {
-      animation: navbar-drop-3d 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-      transform-origin: top center;
-      opacity: 0;
+      transform: scale(1) translateY(0);
     }
 
     /* CRT Television collapse and turn-on animations */
@@ -340,81 +241,24 @@
       transform-origin: center center;
     }
 
-    @keyframes ground-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-groundLoop {
-      animation: ground-scroll 0.8s linear infinite;
-    }
-
-    @keyframes spin-slow {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    .animate-spin-slow {
-      animation: spin-slow 8s linear infinite;
-    }
-
-    @keyframes npc-idle {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-3px); }
-    }
-    .animate-npcIdle {
-      animation: npc-idle 3s ease-in-out infinite;
-    }
-
-    @keyframes bird-fly {
-      0% { transform: translateX(-15vw) translateY(0) scaleX(1); }
-      48% { transform: translateX(110vw) translateY(-15px) scaleX(1); }
-      50% { transform: translateX(110vw) translateY(-15px) scaleX(-1); }
-      98% { transform: translateX(-15vw) translateY(0) scaleX(-1); }
-      100% { transform: translateX(-15vw) translateY(0) scaleX(1); }
-    }
-    .animate-birdFly {
-      animation: bird-fly 30s linear infinite;
-    }
-
-    .pixel-hero-logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-family: 'Pixelify Sans', sans-serif !important;
-      text-transform: uppercase;
-      line-height: 0.95;
-      letter-spacing: 0.02em;
+    .hero-title {
+      font-size: clamp(3rem, 11vw, 6.5rem);
+      line-height: 1.1;
+      color: #FFFFFF;
+      text-shadow: 
+        4px 4px 0px #3b82f6, 
+        -2px -2px 0px #3b82f6, 
+        2px -2px 0px #3b82f6, 
+        -2px 2px 0px #3b82f6, 
+        0px 4px 0px #3b82f6, 
+        4px 0px 0px #3b82f6;
+      letter-spacing: 0.05em;
       font-weight: 900;
     }
-    .pixel-hero-text-prachi {
-      font-size: clamp(3.2rem, 11.5vw, 6.8rem);
-      background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 18%, #FF63C3 18%, #e23d9f 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-      filter: 
-        drop-shadow(2px 0px 0px #1C2340) 
-        drop-shadow(-2px 0px 0px #1C2340) 
-        drop-shadow(0px 2px 0px #1C2340) 
-        drop-shadow(0px -2px 0px #1C2340) 
-        drop-shadow(3px 3px 0px #1C2340);
-    }
-    .pixel-hero-text-chauhan {
-      font-size: clamp(3.2rem, 11.5vw, 6.8rem);
-      background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 18%, #59C3FF 18%, #1fa1eb 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-      filter: 
-        drop-shadow(2px 0px 0px #1C2340) 
-        drop-shadow(-2px 0px 0px #1C2340) 
-        drop-shadow(0px 2px 0px #1C2340) 
-        drop-shadow(0px -2px 0px #1C2340) 
-        drop-shadow(3px 3px 0px #1C2340);
-    }
 
+    /* Game background layers */
     .game-container {
-      font-family: 'Pixelify Sans', sans-serif !important;
-      background: linear-gradient(to bottom, #6EA8FF 0%, #9066eb 35%, #FFC4D9 65%, #ffd09b 82%, #1C2340 100%);
+      background: linear-gradient(to bottom, #c6e6fb 0%, #c6e6fb 60%, #f9c5ff 75%, #a855f7 85%, #1e3a8a 100%);
       image-rendering: pixelated;
       position: relative;
       overflow: hidden;
@@ -426,9 +270,9 @@
       left: 0;
       right: 0;
       height: 80px;
-      background-image: linear-gradient(transparent 20%, #1C2340 20%);
-      clip-path: polygon(0 85%, 5% 85%, 5% 45%, 10% 45%, 10% 65%, 14% 65%, 14% 35%, 22% 35%, 22% 75%, 26% 75%, 26% 25%, 34% 25%, 34% 65%, 38% 65%, 38% 50%, 46% 50%, 46% 75%, 50% 75%, 50% 15%, 58% 15%, 58% 55%, 66% 55%, 66% 30%, 74% 30%, 74% 75%, 78% 75%, 78% 10%, 86% 10%, 86% 45%, 92% 45%, 92% 30%, 96% 30%, 96% 85%, 100% 85%, 100% 100%, 0 100%);
-      opacity: 0.95;
+      background-image: linear-gradient(transparent 20%, #2e1065 20%);
+      clip-path: polygon(0 80%, 5% 80%, 5% 40%, 10% 40%, 10% 60%, 15% 60%, 15% 30%, 25% 30%, 25% 70%, 30% 70%, 30% 20%, 40% 20%, 40% 60%, 45% 60%, 45% 45%, 55% 45%, 55% 70%, 60% 70%, 60% 10%, 70% 10%, 70% 50%, 80% 50%, 80% 30%, 90% 30%, 90% 80%, 100% 80%, 100% 100%, 0 100%);
+      opacity: 0.85;
     }
 
     .ground-layer {
@@ -437,40 +281,19 @@
       left: 0;
       right: 0;
       height: 60px;
-      background-color: #1C2340;
-      border-top: 6px solid #4ade80;
+      background-color: #1e3a8a;
+      border-top: 4px solid #3b82f6;
     }
 
     .pixel-btn {
       background-color: #93c5fd;
       border: 4px solid #1e40af;
       box-shadow: inset -4px -4px 0px 0px #60a5fa, 4px 4px 0px 0px rgba(0,0,0,0.25);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-      will-change: transform, box-shadow, filter;
-    }
-    .pixel-btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      filter: brightness(1.06);
+      transition: transform 0.05s, box-shadow 0.05s;
     }
     .pixel-btn:active {
-      transform: translateY(1px) scale(0.97);
-    }
-    .pixel-btn::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -150%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-      transform: skewX(-20deg);
-      transition: none;
-    }
-    .pixel-btn:hover::after {
-      left: 150%;
-      transition: left 0.8s ease-in-out;
+      transform: translate(2px, 2px);
+      box-shadow: inset -2px -2px 0px 0px #60a5fa, 2px 2px 0px 0px rgba(0,0,0,0.2);
     }
 
     .speech-bubble {
@@ -479,13 +302,11 @@
       border-radius: 8px;
       padding: 8px 12px;
       position: relative;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: black;
       text-transform: uppercase;
       box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
-      max-width: 160px;
-      word-break: break-word;
     }
     .speech-bubble::after {
       content: '';
@@ -893,11 +714,8 @@
       return (
         <div 
           onClick={onClick}
-          className="cursor-pointer select-none h-[260px] w-full relative group tilt-card"
+          className="cursor-pointer select-none h-[260px] w-full relative group"
         >
-          {/* Light Sweep overlay */}
-          <div className="light-sweep"></div>
-
           {/* Tab (Back Flap) */}
           <div className="absolute top-0 left-3 w-28 h-9 bg-[#006bf0] border-t-[5px] border-x-[5px] border-black rounded-t-xl z-0 transition-transform group-hover:-translate-y-0.5"></div>
           
@@ -905,7 +723,7 @@
           <div className="absolute top-6 left-0 right-0 bottom-0 bg-[#006bf0] border-[5px] border-black rounded-2xl z-10"></div>
           
           {/* Front Flap */}
-          <div className="absolute top-12 left-0 right-0 bottom-0 bg-[#69a5ff] border-[5px] border-black rounded-2xl z-20 flex flex-col justify-between p-4 shadow-lg group-hover:bg-[#7cb4ff] transition-colors tilt-card-inner">
+          <div className="absolute top-12 left-0 right-0 bottom-0 bg-[#69a5ff] border-[5px] border-black rounded-2xl z-20 flex flex-col justify-between p-4 shadow-lg group-hover:bg-[#7cb4ff] transition-colors">
             <div>
               {/* Directory path icon */}
               <div className="flex items-center gap-1.5 opacity-80 mb-1.5 text-[9px] text-pixelDarkBlue font-bold">
@@ -949,7 +767,7 @@
       const [hearts, setHearts] = useState(3);
       const [trophyClicks, setTrophyClicks] = useState(0);
       const [trophyBouncing, setTrophyBouncing] = useState(false);
-      const leftDialogs = ["🙂", "Full Stack Dev!", "Next.js & React", "MongoDB Core", "DBMS architect", "Let's start!"];
+      const leftDialogs = ["😊", "Full Stack Dev!", "Next.js & React", "MongoDB Core", "DBMS architect", "Let's start!"];
       const rightDialogs = ["❤️", "SQL Analyst!", "Business Case", "Excel & PowerBI", "Process Flow", "Ready player 1"];
       const [leftIndex, setLeftIndex] = useState(0);
       const [rightIndex, setRightIndex] = useState(0);
@@ -986,139 +804,6 @@
       const [emailMessage, setEmailMessage] = useState('');
       const [pingHandshake, setPingHandshake] = useState(null);
 
-      // Jumping Game state
-      const [gamePlaying, setGamePlaying] = useState(false);
-      const [gameOver, setGameOver] = useState(false);
-      const [gameScore, setGameScore] = useState(0);
-      const [highScore, setHighScore] = useState(() => {
-        try {
-          return parseInt(localStorage.getItem('prachi_high_score') || '0', 10);
-        } catch {
-          return 0;
-        }
-      });
-      const [isJumping, setIsJumping] = useState(false);
-      const [obstacleX, setObstacleX] = useState(100);
-      const [obstacleType, setObstacleType] = useState(0); // 0: cactus, 1: rock, 2: monitor
-
-      // Jump action
-      const handleGameJump = () => {
-        if (!gamePlaying) {
-          // Start game
-          setGamePlaying(true);
-          setGameOver(false);
-          setGameScore(0);
-          setObstacleX(100);
-          return;
-        }
-        if (gameOver) {
-          // Restart game
-          setGameOver(false);
-          setGameScore(0);
-          setObstacleX(100);
-          return;
-        }
-        if (isJumping) return;
-        setIsJumping(true);
-        // Play jump sound
-        try {
-          const ctx = new (window.AudioContext || window.webkitAudioContext)();
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(150, ctx.currentTime);
-          osc.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.15);
-          gain.gain.setValueAtTime(0.08, ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start();
-          osc.stop(ctx.currentTime + 0.15);
-        } catch (e) {}
-
-        // Reset jump state after 600ms (standard jump curve time)
-        setTimeout(() => {
-          setIsJumping(false);
-        }, 600);
-      };
-
-      // Handle space bar jump keybind
-      useEffect(() => {
-        const handleKeyDown = (e) => {
-          if (e.code === 'Space') {
-            if (activeTab === 'experience' && stage === 'console') {
-              e.preventDefault();
-              handleGameJump();
-            }
-          }
-        };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-      }, [gamePlaying, gameOver, isJumping, activeTab, stage]);
-
-      // Obstacle & Score loop
-      useEffect(() => {
-        if (!gamePlaying || gameOver) return;
-        let animationFrameId;
-        let lastTime = performance.now();
-
-        const updateGame = (time) => {
-          const delta = time - lastTime;
-          lastTime = time;
-
-          setObstacleX(prev => {
-            let nextX = prev - 0.085 * delta; // speed factor
-            if (nextX <= -5) {
-              // Obstacle cleared!
-              setGameScore(s => {
-                const nextScore = s + 10;
-                if (nextScore > highScore) {
-                  setHighScore(nextScore);
-                  try {
-                    localStorage.setItem('prachi_high_score', nextScore.toString());
-                  } catch {}
-                }
-                return nextScore;
-              });
-              // Select random next obstacle type
-              setObstacleType(Math.floor(Math.random() * 3));
-              return 105; // spawn off-screen right
-            }
-
-            // Collision check!
-            if (nextX > 14 && nextX < 26) {
-              if (!isJumping) {
-                setGameOver(true);
-                // Play fail sound
-                try {
-                  const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                  const osc = ctx.createOscillator();
-                  const gain = ctx.createGain();
-                  osc.type = 'sawtooth';
-                  osc.frequency.setValueAtTime(200, ctx.currentTime);
-                  osc.frequency.linearRampToValueAtTime(50, ctx.currentTime + 0.3);
-                  gain.gain.setValueAtTime(0.12, ctx.currentTime);
-                  gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
-                  osc.connect(gain);
-                  gain.connect(ctx.destination);
-                  osc.start();
-                  osc.stop(ctx.currentTime + 0.3);
-                } catch (e) {}
-              }
-            }
-
-            return nextX;
-          });
-
-          if (!gameOver) {
-            animationFrameId = requestAnimationFrame(updateGame);
-          }
-        };
-
-        animationFrameId = requestAnimationFrame(updateGame);
-        return () => cancelAnimationFrame(animationFrameId);
-      }, [gamePlaying, gameOver, isJumping, highScore]);
-
       // Static cloud offsets for the Goals/Team dashboard
       const goalsClouds = [
         { width: 55, height: 18, top: 40, left: 15 },
@@ -1146,230 +831,13 @@
       useEffect(() => {
         const body = document.body;
         if (stage === 'home') {
-          body.style.backgroundColor = '#1C2340';
+          body.style.backgroundColor = '#e2e8f0'; // Gray-200
         } else if (stage === 'console') {
           body.style.backgroundColor = activeTab === 'skills' || activeTab === 'experience' ? '#f0f4ff' : '#f0f9ff';
         } else {
           body.style.backgroundColor = '#0f172a'; // Slate-900
         }
       }, [stage, activeTab]);
-
-      // Lenis smooth scroll initialization
-      useEffect(() => {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const lenis = new Lenis({
-          duration: 1.2,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-          smoothWheel: true,
-          wheelMultiplier: 1,
-        });
-        function raf(time) {
-          lenis.raf(time);
-          requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-        return () => {
-          lenis.destroy();
-        };
-      }, []);
-
-      // GSAP Entrance animation sequence on page load
-      useEffect(() => {
-        if (stage === 'home') {
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            gsap.set('.hero-title, .splash-subtitle-container, .splash-start-btn, .splash-characters', { opacity: 1, y: 0, filter: 'none' });
-            return;
-          }
-          // Set initial values to prevent flash of content
-          gsap.set('.hero-title', { opacity: 0, y: 12, filter: 'blur(4px)' });
-          gsap.set('.splash-subtitle-container', { opacity: 0, y: 8, filter: 'blur(3px)' });
-          gsap.set('.splash-start-btn', { opacity: 0, scale: 0.98, y: 6 });
-          gsap.set('.splash-characters', { opacity: 0, y: 6 });
-
-          // Run sequence with spring effects
-          const tl = gsap.timeline();
-          tl.to('.hero-title', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.65, ease: 'power3.out', delay: 0.15 })
-            .to('.splash-subtitle-container', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.55, ease: 'power3.out' }, '-=0.45')
-            .to('.splash-start-btn', { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: 'back.out(0.8)' }, '-=0.35')
-            .to('.splash-characters', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3');
-        }
-      }, [stage]);
-
-      // Mouse move interactions: 3D tilt, magnetic cursor, background light gradient, cursor glow
-      useEffect(() => {
-        const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (isReducedMotion) return;
-
-        const cursorGlow = document.querySelector('.cursor-glow');
-        const bgOverlay = document.querySelector('.premium-bg-overlay');
-
-        const handleMouseMove = (e) => {
-          const mx = e.clientX;
-          const my = e.clientY;
-
-          // 1. Move custom cursor glow with slight lag
-          if (cursorGlow) {
-            cursorGlow.classList.add('active');
-            gsap.to(cursorGlow, {
-              x: mx,
-              y: my,
-              duration: 0.3,
-              ease: 'power2.out',
-              overwrite: 'auto'
-            });
-          }
-
-          // 2. Dynamic background gradient follow
-          if (bgOverlay) {
-            const rx = (mx / window.innerWidth) * 100;
-            const ry = (my / window.innerHeight) * 100;
-            bgOverlay.style.setProperty('--mouse-x', `${rx}%`);
-            bgOverlay.style.setProperty('--mouse-y', `${ry}%`);
-          }
-
-          // 3. 3D Card Tilting calculation
-          const tiltCards = document.querySelectorAll('.tilt-card');
-          tiltCards.forEach(card => {
-            const rect = card.getBoundingClientRect();
-            const cx = mx - rect.left;
-            const cy = my - rect.top;
-
-            if (cx >= 0 && cy >= 0 && cx <= rect.width && cy <= rect.height) {
-              const nx = cx / rect.width - 0.5;
-              const ny = cy / rect.height - 0.5;
-              
-              // Rotate X based on Y offset, Rotate Y based on X offset (limit: max 2.5 deg)
-              const rxVal = -ny * 5;
-              const ryVal = nx * 5;
-              
-              card.style.transform = `perspective(1500px) rotateX(${rxVal}deg) rotateY(${ryVal}deg) translateY(-4px)`;
-              
-              // Dynamic shadow calculation
-              const sx = -nx * 8;
-              const sy = 8 - ny * 6;
-              card.style.boxShadow = `${sx}px ${sy}px 18px rgba(0, 48, 135, 0.06), 2px 2px 0px rgba(0,0,0,0.05)`;
-
-              // Radial sweep spotlight
-              const sweep = card.querySelector('.light-sweep');
-              if (sweep) {
-                const px = (cx / rect.width) * 100;
-                const py = (cy / rect.height) * 100;
-                sweep.style.background = `radial-gradient(circle 120px at ${px}% ${py}%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.02) 60%, transparent 100%)`;
-              }
-            } else {
-              // Return card to normal
-              card.style.transform = '';
-              card.style.boxShadow = '';
-              const sweep = card.querySelector('.light-sweep');
-              if (sweep) sweep.style.background = '';
-            }
-          });
-
-          // 4. Magnetic Proximity pull (attraction limit: 3px, range: 60px)
-          const magneticItems = document.querySelectorAll('.pixel-btn, .workspace-tab');
-          magneticItems.forEach(item => {
-            const rect = item.getBoundingClientRect();
-            const ix = rect.left + rect.width / 2;
-            const iy = rect.top + rect.height / 2;
-            const dx = mx - ix;
-            const dy = my - iy;
-            const dist = Math.hypot(dx, dy);
-
-            if (dist < 60) {
-              const px = (dx / 60) * 3;
-              const py = (dy / 60) * 3;
-              gsap.to(item, {
-                x: px,
-                y: py,
-                duration: 0.4,
-                ease: 'power2.out',
-                overwrite: 'auto'
-              });
-            } else {
-              gsap.to(item, {
-                x: 0,
-                y: 0,
-                duration: 0.5,
-                ease: 'elastic.out(1, 0.5)',
-                overwrite: 'auto'
-              });
-            }
-          });
-        };
-
-        const handleMouseLeave = () => {
-          if (cursorGlow) cursorGlow.classList.remove('active');
-          const tiltCards = document.querySelectorAll('.tilt-card');
-          tiltCards.forEach(card => {
-            card.style.transform = '';
-            card.style.boxShadow = '';
-            const sweep = card.querySelector('.light-sweep');
-            if (sweep) sweep.style.background = '';
-          });
-          const magneticItems = document.querySelectorAll('.pixel-btn, .workspace-tab');
-          magneticItems.forEach(item => {
-            gsap.to(item, { x: 0, y: 0, duration: 0.5, ease: 'power2.out', overwrite: 'auto' });
-          });
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseleave', handleMouseLeave);
-        return () => {
-          window.removeEventListener('mousemove', handleMouseMove);
-          document.removeEventListener('mouseleave', handleMouseLeave);
-        };
-      }, [stage, activeTab]);
-
-      // Intersection Observer scroll reveals
-      useEffect(() => {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          document.querySelectorAll('.scroll-reveal').forEach(el => {
-            el.classList.add('reveal-active');
-          });
-          return;
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('reveal-active');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.05,
-          rootMargin: '0px 0px -40px 0px'
-        });
-
-        // Query all elements with entrance-card or scroll-reveal classes
-        document.querySelectorAll('.scroll-reveal, .entrance-card').forEach(el => {
-          observer.observe(el);
-        });
-
-        return () => observer.disconnect();
-      }, [stage, activeTab]);
-
-      // Dynamically add tilt classes and sweep overlays to skill cards
-      useEffect(() => {
-        const skillCards = document.querySelectorAll('.bg-white.border-2.border-pixelDarkBlue.p-3.rounded.shadow-sm');
-        skillCards.forEach(card => {
-          if (card.classList.contains('tilt-processed')) return;
-          card.classList.add('tilt-card', 'tilt-processed');
-          
-          // Create light sweep overlay
-          const sweep = document.createElement('div');
-          sweep.className = 'light-sweep';
-          card.appendChild(sweep);
-          
-          // Wrap existing content in tilt-card-inner
-          const inner = document.createElement('div');
-          inner.className = 'tilt-card-inner flex flex-col justify-between h-full w-full';
-          while (card.firstChild && card.firstChild !== sweep) {
-            inner.appendChild(card.firstChild);
-          }
-          card.insertBefore(inner, sweep);
-        });
-      }, [activeTab, stage, renderKey]);
 
       // Splash clouds animation
       useEffect(() => {
@@ -1632,257 +1100,114 @@
       };
 
       return (
-        <div className="flex-grow flex flex-col w-full text-slate-800 text-sm relative">
-          <div className="premium-bg-overlay"></div>
-          <div className="cursor-glow"></div>
+        <div className="flex-grow flex flex-col w-full text-slate-800 text-sm">
 
           {/* VIEWPORT 1: RETRO SPLASH SCREEN */}
           {stage === 'home' && (
             <div className={`w-full min-h-screen game-container flex flex-col justify-between relative overflow-hidden ${splashClass}`}>
                 
-                {/* Slow flying distant pixel birds */}
-                <div className="absolute top-28 left-0 right-0 h-10 pointer-events-none select-none z-10 animate-birdFly">
-                  <svg className="w-6 h-4 text-blue-900/40" viewBox="0 0 20 12" fill="currentColor">
-                    <path d="M0 6 Q5 0 10 6 Q15 0 20 6 Q15 4 10 8 Q5 4 0 6 Z" />
-                  </svg>
-                </div>
-
                 {/* Clouds */}
                 <div 
-                  className="absolute top-10 w-16 h-6 bg-white opacity-40 rounded" 
+                  className="absolute top-10 w-16 h-6 bg-white opacity-60 rounded" 
                   style={{ 
                     left: `${10 + cloudOffset.c1}%`,
                     boxShadow: '8px 8px 0 0 white, -8px 8px 0 0 white, 0 16px 0 0 white' 
                   }}
                 />
                 <div 
-                  className="absolute top-24 w-20 h-8 bg-white opacity-25 rounded" 
+                  className="absolute top-24 w-20 h-8 bg-white opacity-40 rounded" 
                   style={{ 
                     right: `${20 + cloudOffset.c2}%`,
                     boxShadow: '10px 10px 0 0 white, -10px 10px 0 0 white, 0 20px 0 0 white' 
                   }}
                 />
 
-                {/* Floating skill balloon blocks (Mockup string-aligned elements) */}
-                <div className="absolute top-12 left-[14%] flex flex-col items-center select-none z-10 animate-npcIdle">
-                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
-                    JSX
-                  </div>
-                  <div className="w-px h-16 border-l-2 border-dotted border-blue-400/40"></div>
-                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-sm"></div>
-                </div>
-
-                <div className="absolute top-4 left-[28%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '0.4s' }}>
-                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
-                    CRO
-                  </div>
-                  <div className="w-px h-12 border-l-2 border-dotted border-pink-300/40"></div>
-                  <div className="w-1.5 h-1.5 bg-pink-300 rounded-sm"></div>
-                </div>
-
-                <div className="absolute top-6 right-[28%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '0.8s' }}>
-                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
-                    KPI
-                  </div>
-                  <div className="w-px h-14 border-l-2 border-dotted border-blue-300/40"></div>
-                  <div className="w-1.5 h-1.5 bg-blue-300 rounded-sm"></div>
-                </div>
-
-                <div className="absolute top-20 right-[18%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '1.2s' }}>
-                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
-                    3SX
-                  </div>
-                  <div className="w-px h-12 border-l-2 border-dotted border-pink-300/40"></div>
-                  <div className="w-1.5 h-1.5 bg-pink-300 rounded-sm"></div>
-                </div>
-
-                {/* Layer 1: Distant City Skyline (Deep Faded) */}
-                <div className="absolute bottom-[60px] left-0 right-0 h-44 opacity-20 select-none pointer-events-none"
-                     style={{
-                       backgroundImage: 'linear-gradient(transparent 15%, #2a085c 15%)',
-                       clipPath: 'polygon(0 80%, 3% 80%, 3% 30%, 6% 30%, 6% 50%, 9% 50%, 9% 20%, 15% 20%, 15% 60%, 20% 60%, 20% 10%, 28% 10%, 28% 45%, 35% 45%, 35% 30%, 42% 30%, 42% 65%, 48% 65%, 48% 15%, 55% 15%, 55% 55%, 62% 55%, 62% 25%, 70% 25%, 70% 70%, 75% 70%, 75% 5%, 82% 5%, 82% 40%, 90% 40%, 90% 25%, 95% 25%, 95% 80%, 100% 80%, 100% 100%, 0 100%)'
-                     }}></div>
-
-                {/* Layer 2: Middle City Skyline */}
-                <div className="absolute bottom-[60px] left-0 right-0 h-32 opacity-60 select-none pointer-events-none"
-                     style={{
-                       backgroundImage: 'linear-gradient(transparent 20%, #15003c 20%)',
-                       clipPath: 'polygon(0 85%, 5% 85%, 5% 45%, 10% 45%, 10% 65%, 14% 65%, 14% 35%, 22% 35%, 22% 75%, 26% 75%, 26% 25%, 34% 25%, 34% 65%, 38% 65%, 38% 50%, 46% 50%, 46% 75%, 50% 75%, 50% 15%, 58% 15%, 58% 55%, 66% 55%, 66% 30%, 74% 30%, 74% 75%, 78% 75%, 78% 10%, 86% 10%, 86% 45%, 92% 45%, 92% 30%, 96% 30%, 96% 85%, 100% 85%, 100% 100%, 0 100%)'
-                     }}></div>
-
-                {/* Setting/Rising sun behind the bridge */}
-                <div className="absolute bottom-[60px] left-1/2 -translate-x-1/2 w-20 h-10 bg-[#ffd09b]/50 rounded-t-full blur-[1px] pointer-events-none select-none"></div>
-
-                {/* Layer 3: Foreground Platform */}
-                <div className="city-skyline text-[#1C2340]"></div>
-                
-                {/* Foreground platform stone brick layout */}
-                <div className="ground-layer">
-                  {/* Center Wooden bridge section with rail posts */}
-                  <div className="absolute top-[-6px] left-[40%] right-[40%] h-2.5 bg-[#b45309] border-t-2 border-b-2 border-[#1C2340] z-10">
-                    <div className="absolute top-[-6px] left-0 w-1.5 h-3 bg-[#b45309] border border-[#1C2340]"></div>
-                    <div className="absolute top-[-6px] left-1/4 w-1.5 h-3 bg-[#b45309] border border-[#1C2340]"></div>
-                    <div className="absolute top-[-6px] left-2/4 w-1.5 h-3 bg-[#b45309] border border-[#1C2340]"></div>
-                    <div className="absolute top-[-6px] left-3/4 w-1.5 h-3 bg-[#b45309] border border-[#1C2340]"></div>
-                    <div className="absolute top-[-6px] right-0 w-1.5 h-3 bg-[#b45309] border border-[#1C2340]"></div>
-                  </div>
-                  {/* Micro brick details overlay */}
-                  <div className="absolute inset-0 opacity-15 pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, #fff 1px, transparent 1px), linear-gradient(#fff 1px, transparent 1px)', backgroundSize: '12px 12px' }}></div>
-                </div>
-
-                {/* D-Pad Select System status indicator */}
-                <div className="absolute top-6 left-8 flex items-center gap-2 z-10 select-none font-mono">
-                  <svg className="w-5.5 h-5.5" viewBox="0 0 24 24" fill="none">
-                    <path d="M8 2H16V8H22V16H16V22H8V16H2V8H8V2Z" fill="#8b5cf6" stroke="#1C2340" strokeWidth="2.5" strokeLinejoin="miter"/>
-                    <rect x="11" y="11" width="2" height="2" fill="white"/>
-                  </svg>
-                  <span className="text-[10px] font-extrabold text-white tracking-widest">SELECT</span>
-                </div>
-
-                {/* Bottom Left: Retro Terminal status panel with signal bars */}
-                <div className="absolute bottom-[72px] left-6 z-10 font-mono text-[9px] font-bold text-[#4ade80] bg-[#23284A]/95 border-2 border-[#1C2340] p-2 flex flex-col gap-1.5 select-none pointer-events-none rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] w-[125px]">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-[#4ade80] rounded-sm"></span>
-                    <span>STATUS: ONLINE</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 bg-[#59C3FF] rounded-sm"></span>
-                      <span>PING: 12ms</span>
-                    </div>
-                    <div className="flex items-end gap-0.5 h-2">
-                      <div className="w-0.5 h-1 bg-[#4ade80]"></div>
-                      <div className="w-0.5 h-1.5 bg-[#4ade80]"></div>
-                      <div className="w-0.5 h-2 bg-[#4ade80]"></div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom Right: Inventory status panel */}
-                <div className="absolute bottom-[72px] right-6 z-10 font-mono text-[9px] font-bold text-white bg-[#23284A]/95 border-2 border-[#1C2340] p-2 flex flex-col gap-1.5 select-none pointer-events-none rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] w-[125px]">
-                  <div className="flex items-center gap-1.5 text-white">
-                    <svg className="w-2.5 h-2.5 text-[#59C3FF]" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2L2 7L12 12L22 7L12 2Z M2 17L12 22L22 17 M2 12L12 17L22 12" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span>STACK: MERN</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-white">
-                    <svg className="w-2.5 h-2.5 text-[#FF63C3]" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"/>
-                    </svg>
-                    <span>LOC: CSE-MUJ</span>
-                  </div>
-                </div>
+                <div className="city-skyline text-blue-900"></div>
+                <div className="ground-layer"></div>
 
                 {/* Health Bar status overlay */}
-                <div className="absolute top-6 right-8 z-10 bg-[#23284A]/95 border-2 border-[#1C2340] p-1.5 px-3 flex items-center gap-2 rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] select-none">
-                  <span className="text-[9px] font-extrabold text-[#93c5fd] tracking-wider font-mono">HEALTH:</span>
-                  <div className="flex gap-1 text-xs">
-                    <span className="text-pink-500 animate-pulse">♥</span>
-                    <span className="text-pink-500 animate-pulse" style={{ animationDelay: '0.2s' }}>♥</span>
-                    <span className="text-pink-500 animate-pulse" style={{ animationDelay: '0.4s' }}>♥</span>
+                <header className="absolute top-6 right-8 flex items-center gap-3 z-10 font-bold">
+                  <span className="text-xs text-blue-900 tracking-wider">HEALTH:</span>
+                  <div className="flex gap-1.5 cursor-pointer text-base" onClick={handleHeartClick}>
+                    {Array.from({ length: 3 }).map((_, i) => (
+                      <span 
+                        key={i} 
+                        className="transition-all duration-100 transform hover:scale-120 text-pink-500"
+                      >
+                        ♥
+                      </span>
+                    ))}
                   </div>
-                </div>
+                </header>
 
                 {/* Center Content Section */}
-                <section className="relative flex-grow flex flex-col items-center justify-center pt-16 px-10 text-center z-10">
-                  <div className="flex flex-col items-center gap-4 mb-6 max-w-2xl">
+                <section className="relative flex-grow flex flex-col items-center justify-center pt-12 px-10 text-center z-10">
+                  <div className="flex flex-col items-center gap-6 mb-8 max-w-2xl">
                     <div className="text-center text-slate-800">
-                      {/* Stacked Gradient 3D Logo matching image */}
-                      <div className="pixel-hero-logo mb-2 select-none">
-                        <span className="pixel-hero-text-prachi">PRACHI</span>
-                        <span className="pixel-hero-text-chauhan">CHAUHAN</span>
-                      </div>
-                      
+                      <h1 className="hero-title mb-2 pixeloid-font">PRACHI CHAUHAN </h1>
                       <div className="flex flex-col md:flex-row gap-6 mt-4 justify-center">
-                        <div className="max-w-[500px] splash-subtitle-container flex flex-col items-center">
-                          {/* Engraved Retro Status Bar */}
-                          <div className="bg-[#23284A]/95 border-2 border-[#1C2340] p-2 px-5 flex items-center justify-center gap-3.5 rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] select-none max-w-md">
-                            <span className="text-[#FF63C3] text-xs">★</span>
-                            <span className="text-[9px] font-mono font-extrabold text-white tracking-widest uppercase">
-                              BUSINESS ANALYST & WEB DEVELOPER
-                            </span>
-                            <span className="text-[#FF63C3] text-xs">★</span>
-                          </div>
-                          
-                          <p className="text-[10px] font-mono font-bold text-[#1C2340] mt-6 select-none">
-                            Press <span className="text-[#FF63C3] font-extrabold uppercase">START</span> to boot telemetry workspaces.
+                        <div className="max-w-[500px]">
+                          <p className="text-sm text-blue-900 leading-tight mb-2 tracking-wider font-extrabold uppercase">
+                            BUSINESS ANALYST & WEB DEVELOPER
+                          </p>
+                          <p className="text-xs text-blue-800 leading-normal font-bold">
+                            Interactive recruitment deck. Press START to boot telemetry workspaces.
                           </p>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Nintendo Pill start button */}
                   <button 
                     onClick={handleStartClick}
-                    className="pixel-btn px-14 py-3 mt-2 text-white text-xs font-extrabold tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[6px_6px_0px_0px_rgba(28,35,64,0.35)] animate-pulse"
-                    style={{
-                      background: 'linear-gradient(to bottom, #ff75c3 0%, #ff3b9a 100%)',
-                      border: '3px solid #1C2340',
-                    }}
+                    className="pixel-btn px-12 py-3.5 mt-2 text-white text-sm font-extrabold tracking-wider hover:brightness-110 active:scale-95 animate-pulse"
                   >
-                    START ▶
+                    START
                   </button>
                 </section>
 
-                {/* Character Sprites with NPC Idle coordinates */}
-                <div className="absolute bottom-[60px] left-0 w-full flex justify-around items-end px-6 sm:px-20 pb-4 z-20 pointer-events-none splash-characters">
+                {/* Character Sprites with pointer-events-none container to avoid overlap blockages */}
+                <div className="absolute bottom-[60px] left-0 w-full flex justify-around items-end px-20 pb-4 z-20 pointer-events-none">
                   
-                  {/* Left Character (DEV NPC) */}
-                  <div onClick={cycleLeftSpeech} className="flex flex-col items-center cursor-pointer group pointer-events-auto animate-npcIdle">
-                    {/* Retro Speech Bubble with tail pointer */}
-                    <div className="bg-white border-2 border-[#1C2340] p-1 px-2.5 rounded mb-2.5 relative shadow-sm text-xs select-none font-bold">
+                  {/* Left Character */}
+                  <div onClick={cycleLeftSpeech} className="flex flex-col items-center cursor-pointer group pointer-events-auto">
+                    <div className="speech-bubble mb-2 group-hover:scale-105 transition-transform duration-100 text-xs font-bold">
                       {leftDialogs[leftIndex]}
-                      {/* Speech bubble tail border & fill */}
-                      <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-[#1C2340]"></div>
-                      <div className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-t-[5px] border-t-white"></div>
                     </div>
-                    {/* Square Face Block - Pink Head */}
-                    <div className="w-10 h-10 bg-[#FF63C3] border-2 border-[#1C2340] relative flex items-center justify-center shadow-md">
-                      {/* Eyes */}
-                      <div className="absolute top-3.5 left-2 w-1.5 h-1.5 bg-[#1C2340]"></div>
-                      <div className="absolute top-3.5 right-2 w-1.5 h-1.5 bg-[#1C2340]"></div>
-                      {/* Blush/Mouth */}
-                      <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-3.5 h-1.5 bg-[#f472b6]/55 rounded-sm"></div>
-                    </div>
-                    {/* Platform Label - Blue Body platform */}
-                    <div className="w-10 h-4 bg-[#59C3FF] border-2 border-t-0 border-[#1C2340] flex items-center justify-center font-mono shadow-sm">
-                      <span className="text-[7px] font-black text-white tracking-wider">DEV</span>
+                    <div className="w-12 h-16 bg-blue-300 border-2 border-black rounded-sm relative shadow group-hover:bg-blue-200 transition-colors">
+                      <div className="w-8 h-8 bg-pink-200 mx-auto mt-1 border-b-2 border-black relative">
+                        <div className="absolute top-3 left-1 w-1.5 h-1.5 bg-black" />
+                        <div className="absolute top-3 right-1 w-1.5 h-1.5 bg-black" />
+                      </div>
+                      <div className="w-full h-4 bg-white mt-auto flex justify-center items-center">
+                        <span className="text-[9px] font-extrabold text-slate-500">DEV</span>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Right Character (ANALYST NPC) */}
-                  <div onClick={cycleRightSpeech} className="flex flex-col items-center cursor-pointer group pointer-events-auto animate-npcIdle" style={{ animationDelay: '0.5s' }}>
-                    {/* Retro Speech Bubble with tail pointer */}
-                    <div className="bg-white border-2 border-[#1C2340] p-1 px-2.5 rounded mb-2.5 relative shadow-sm text-xs select-none font-bold">
+                  {/* Right Character */}
+                  <div onClick={cycleRightSpeech} className="flex flex-col items-center cursor-pointer group pointer-events-auto">
+                    <div className="speech-bubble mb-2 group-hover:scale-105 transition-transform duration-100 text-xs font-bold">
                       {rightDialogs[rightIndex]}
-                      {/* Speech bubble tail border & fill */}
-                      <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-[#1C2340]"></div>
-                      <div className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-t-[5px] border-t-white"></div>
                     </div>
-                    {/* Square Face Block - Yellow Head */}
-                    <div className="w-10 h-10 bg-[#fde047] border-2 border-[#1C2340] relative flex items-center justify-center shadow-md">
-                      {/* Eyes */}
-                      <div className="absolute top-3.5 left-2.5 w-1.5 h-1.5 bg-[#1C2340]"></div>
-                      <div className="absolute top-3.5 right-2.5 w-1.5 h-1.5 bg-[#1C2340]"></div>
-                      {/* Blush/Mouth */}
-                      <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-3.5 h-1.5 bg-[#ef4444]/45 rounded-sm"></div>
-                    </div>
-                    {/* Platform Label - Blue Body platform */}
-                    <div className="w-10 h-4 bg-[#59C3FF] border-2 border-t-0 border-[#1C2340] flex items-center justify-center font-mono shadow-sm">
-                      <span className="text-[7px] font-black text-white tracking-wider">ANALYST</span>
+                    <div className="w-12 h-16 bg-blue-800 border-2 border-black rounded-sm relative shadow group-hover:bg-blue-700 transition-colors">
+                      <div className="w-8 h-8 bg-orange-200 mx-auto mt-1 border-b-2 border-black relative">
+                        <div className="absolute top-3 left-1.5 w-1.5 h-1.5 bg-black" />
+                        <div className="absolute top-3 right-1.5 w-1.5 h-1.5 bg-black" />
+                      </div>
+                      <div className="w-full h-4 bg-gray-400 mt-auto flex justify-center items-center">
+                        <span className="text-[9px] font-extrabold text-slate-200">ANALYST</span>
+                      </div>
                     </div>
                   </div>
 
                 </div>
 
                 {/* Footer Watermark */}
-                <footer className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 font-bold font-mono">
-                  <div className="flex items-center gap-1.5 opacity-85 text-[9px] select-none pointer-events-none font-semibold">
-                    <span className="text-[#FF63C3]">★</span>
-                    <span className="text-white">Developer: Prachi Chauhan</span>
-                    <span className="text-[#FF63C3]">★</span>
+                <footer className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 font-bold">
+                  <div className="flex items-center gap-1.5 opacity-55 text-[10px] text-white">
+                    <span className="bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 w-3 h-3 block border border-white/20"></span>
+                    Developer: Prachi Chauhan
                   </div>
                 </footer>
             </div>
@@ -1907,39 +1232,36 @@
             <div className="flex-grow flex flex-col p-4 md:p-8 relative w-full max-w-full">
               
               {/* Recruiter Tab Navigation Header (5 Consolidated Tabs) */}
-              <div className="w-full flex flex-col sm:flex-row justify-between items-center bg-white border-4 border-pixelDarkBlue p-4 gap-4 mb-6 shadow navbar-3d-entrance tilt-card">
-                <div className="light-sweep"></div>
-                <div className="tilt-card-inner flex flex-col sm:flex-row justify-between items-center w-full gap-4">
-                  <div className="flex flex-wrap items-center gap-2">
-                    {[
-                      { id: 'about', label: 'ABOUT ME' },
-                      { id: 'projects', label: 'PROJECTS' },
-                      { id: 'skills', label: 'SKILLS' },
-                      { id: 'experience', label: 'EXPERIENCE & LEADERSHIP' },
-                      { id: 'contact', label: 'CONTACT' }
-                    ].map(tab => (
-                      <button 
-                        key={tab.id}
-                        onClick={() => handleTabSwitchRequest(tab.id)}
-                        className={`px-3.5 py-1.5 text-xs font-extrabold border-2 transition-all workspace-tab ${
-                          activeTab === tab.id 
-                            ? 'bg-pixelDarkBlue text-white border-pixelDarkBlue' 
-                            : 'bg-white text-pixelDarkBlue border-pixelDarkBlue hover:bg-slate-50'
-                        }`}
-                        disabled={isTransitioning}
-                      >
-                        [ {tab.label} ]
-                      </button>
-                    ))}
-                  </div>
-                  <button 
-                    onClick={handleDisconnect}
-                    className="pixel-btn px-5 py-2 text-xs sm:text-sm font-extrabold text-white hover:brightness-110 shrink-0"
-                    disabled={isTransitioning}
-                  >
-                    DISCONNECT
-                  </button>
+              <div className="w-full flex flex-col sm:flex-row justify-between items-center bg-white border-4 border-pixelDarkBlue p-4 gap-4 mb-6 shadow">
+                <div className="flex flex-wrap items-center gap-2">
+                  {[
+                    { id: 'about', label: 'ABOUT ME' },
+                    { id: 'projects', label: 'PROJECTS' },
+                    { id: 'skills', label: 'SKILLS' },
+                    { id: 'experience', label: 'EXPERIENCE & LEADERSHIP' },
+                    { id: 'contact', label: 'CONTACT' }
+                  ].map(tab => (
+                    <button 
+                      key={tab.id}
+                      onClick={() => handleTabSwitchRequest(tab.id)}
+                      className={`px-3.5 py-1.5 text-xs font-extrabold border-2 transition-all ${
+                        activeTab === tab.id 
+                          ? 'bg-pixelDarkBlue text-white border-pixelDarkBlue' 
+                          : 'bg-white text-pixelDarkBlue border-pixelDarkBlue hover:bg-slate-50'
+                      }`}
+                      disabled={isTransitioning}
+                    >
+                      [ {tab.label} ]
+                    </button>
+                  ))}
                 </div>
+                <button 
+                  onClick={handleDisconnect}
+                  className="pixel-btn px-5 py-2 text-xs sm:text-sm font-extrabold text-white hover:brightness-110 shrink-0"
+                  disabled={isTransitioning}
+                >
+                  DISCONNECT
+                </button>
               </div>
 
               {/* Viewport content wrapped with CRT collapse and cross-fade animations */}
@@ -1951,186 +1273,177 @@
                     <main className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-full animate-fadeIn">
                       
                       {/* PROFILE PANEL */}
-                      <section className="bg-pixelBlue p-6 relative overflow-hidden min-h-[360px] flex flex-col justify-between border-4 border-pixelDarkBlue entrance-card stagger-1 tilt-card" data-purpose="panel-welcome">
-                        <div className="light-sweep"></div>
-                        <div className="tilt-card-inner flex flex-col justify-between h-full w-full">
-                          <div className="flex justify-between items-start">
-                            <div>
-                              <h1 className="heading-large mb-4 font-extrabold">PROFILE</h1>
-                              <span className="text-2xl text-pixelPink font-extrabold">1.</span>
-                            </div>
-                            <div className="flex gap-1">
-                              <div className="w-2.5 h-2.5 border-2 border-pixelDarkBlue"></div>
-                              <div className="w-2.5 h-2.5 border-2 border-pixelDarkBlue"></div>
-                              <div className="w-2.5 h-2.5 border-2 border-pixelDarkBlue"></div>
-                            </div>
+                      <section className="bg-pixelBlue p-6 relative overflow-hidden min-h-[360px] flex flex-col justify-between border-4 border-pixelDarkBlue entrance-card stagger-1" data-purpose="panel-welcome">
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h1 className="heading-large mb-4 font-extrabold">PROFILE</h1>
+                            <span className="text-2xl text-pixelPink font-extrabold">1.</span>
+                          </div>
+                          <div className="flex gap-1">
+                            <div className="w-2.5 h-2.5 border-2 border-pixelDarkBlue"></div>
+                            <div className="w-2.5 h-2.5 border-2 border-pixelDarkBlue"></div>
+                            <div className="w-2.5 h-2.5 border-2 border-pixelDarkBlue"></div>
+                          </div>
+                        </div>
+                        
+                        <div className="relative z-10 flex items-center gap-4 mt-2 text-left">
+                          {/* Clicking avatar opens contact links */}
+                          <div 
+                            onClick={() => handleTabSwitchRequest('contact')}
+                            className="w-16 h-16 bg-pixelPink border-2 border-pixelDarkBlue relative shrink-0 cursor-pointer active:scale-95 transition-transform hover:bg-pink-200"
+                          >
+                            <div className="pixel-window-header"></div>
+                            <div className="absolute inset-0 flex items-center justify-center text-xl pt-2">👋</div>
                           </div>
                           
-                          <div className="relative z-10 flex items-center gap-4 mt-2 text-left">
-                            {/* Clicking avatar opens contact links */}
+                          <div className="flex-1 bg-white border-2 border-pixelDarkBlue p-4 relative">
+                            <div className="pixel-window-header absolute top-0 left-0 w-full"></div>
+                            <div className="mt-2 flex flex-col sm:flex-row gap-4">
+                              <div className="w-12 h-12 bg-pixelDarkBlue flex items-center justify-center text-white shrink-0 font-bold">
+                                <span className="text-sm">PC</span>
+                              </div>
+                              <div>
+                                <h2 className="text-sm mb-2 uppercase font-extrabold leading-tight text-slate-800">PRACHI CHAUHAN | B.Tech CSE (Manipal University Jaipur)</h2>
+                                <p className="text-sm text-gray-600 font-medium leading-relaxed">
+                                  Turning business ideas into data-driven, user-centric digital solutions through Full-Stack MERN development, Business Analysis, and Data Analytics. Passionate about solving complex problems, optimizing experiences, and building products that make a real impact.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Walking Character Sandbox Floor */}
+                        <div className="mt-6 relative w-full text-left">
+                          <div className="h-10 w-full bg-pixelPink border-t-4 border-pixelDarkBlue flex items-end px-12 relative overflow-hidden">
+                            <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #003087 0, #003087 1px, transparent 0, transparent 50%)', backgroundSize: '10px 10px' }}></div>
+                            
+                            {/* Animated Pixel Character */}
                             <div 
-                              onClick={() => handleTabSwitchRequest('contact')}
-                              className="w-16 h-16 bg-white border-2 border-pixelDarkBlue relative shrink-0 cursor-pointer active:scale-95 transition-transform overflow-hidden shadow-sm hover:scale-102"
+                              onClick={triggerCharJump}
+                              className={`w-8 h-8 bg-pixelDarkBlue mb-1 relative flex items-center justify-center cursor-pointer transition-all duration-100 z-10 ${
+                                charJumping ? '-translate-y-8 scale-x-90' : 'hover:scale-105 active:scale-95'
+                              }`}
+                              style={{ left: `${charState.pos}%` }}
                             >
-                              <div className="pixel-window-header absolute top-0 left-0 w-full z-10"></div>
-                              <img 
-                                src="profile_avatar.jpg" 
-                                alt="Memoji Avatar"
-                                className="w-full h-full object-cover pt-1.5 absolute inset-0"
-                              />
+                              <div className="w-4 h-2 bg-blue-300 border border-black flex items-center justify-around px-0.5">
+                                <span className="w-0.5 h-0.5 bg-black rounded-full"></span>
+                                <span className="w-0.5 h-0.5 bg-black rounded-full"></span>
+                              </div>
                             </div>
                             
-                            <div className="flex-1 bg-white border-2 border-pixelDarkBlue p-4 relative">
-                              <div className="pixel-window-header absolute top-0 left-0 w-full"></div>
-                              <div className="mt-2 flex flex-col sm:flex-row gap-4">
-                                <div className="w-12 h-12 bg-pixelDarkBlue flex items-center justify-center text-white shrink-0 font-bold">
-                                  <span className="text-sm">PC</span>
+                            {/* Gift box click to shake/reveal framework item */}
+                            <div 
+                              onClick={triggerGiftBox}
+                              className={`absolute right-12 top-0 w-10 h-10 bg-yellow-200 border-2 border-pixelDarkBlue -translate-y-6 flex flex-col items-center justify-center text-xs cursor-pointer select-none z-10 ${
+                                giftState.shaking ? 'shake-animation' : 'hover:translate-y-[-28px]'
+                              } transition-transform`}
+                            >
+                              {giftState.open ? (
+                                <div className="flex flex-col items-center">
+                                  <span className="text-xs font-bold absolute -top-4 font-mono text-purple-700 bg-white border border-purple-500 px-1.5 py-0.5 float-item-animation shadow-sm">{giftState.item}</span>
+                                  <span>📂</span>
                                 </div>
-                                <div>
-                                  <h2 className="text-sm mb-2 uppercase font-extrabold leading-tight text-slate-800">PRACHI CHAUHAN | B.Tech CSE (Manipal University Jaipur)</h2>
-                                  <p className="text-sm text-gray-600 font-medium leading-relaxed">
-                                    Turning business ideas into data-driven, user-centric digital solutions through Full-Stack MERN development, Business Analysis, and Data Analytics. Passionate about solving complex problems, optimizing experiences, and building products that make a real impact.
-                                  </p>
-                                </div>
-                              </div>
+                              ) : (
+                                <span>🎁</span>
+                              )}
                             </div>
                           </div>
-
-                          {/* Walking Character Sandbox Floor */}
-                          <div className="mt-6 relative w-full text-left">
-                            <div className="h-10 w-full bg-pixelPink border-t-4 border-pixelDarkBlue flex items-end px-12 relative overflow-hidden">
-                              <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #003087 0, #003087 1px, transparent 0, transparent 50%)', backgroundSize: '10px 10px' }}></div>
-                              
-                              {/* Animated Pixel Character */}
-                              <div 
-                                onClick={triggerCharJump}
-                                className={`w-8 h-8 bg-pixelDarkBlue mb-1 relative flex items-center justify-center cursor-pointer transition-all duration-100 z-10 ${
-                                  charJumping ? '-translate-y-8 scale-x-90' : 'hover:scale-105 active:scale-95'
-                                }`}
-                                style={{ left: `${charState.pos}%` }}
-                              >
-                                <div className="w-4 h-2 bg-blue-300 border border-black flex items-center justify-around px-0.5">
-                                  <span className="w-0.5 h-0.5 bg-black rounded-full"></span>
-                                  <span className="w-0.5 h-0.5 bg-black rounded-full"></span>
-                                </div>
-                              </div>
-                              
-                              {/* Gift box click to shake/reveal framework item */}
-                              <div 
-                                onClick={triggerGiftBox}
-                                className={`absolute right-12 top-0 w-10 h-10 bg-yellow-200 border-2 border-pixelDarkBlue -translate-y-6 flex flex-col items-center justify-center text-xs cursor-pointer select-none z-10 ${
-                                  giftState.shaking ? 'shake-animation' : 'hover:translate-y-[-28px]'
-                                } transition-transform`}
-                              >
-                                {giftState.open ? (
-                                  <div className="flex flex-col items-center">
-                                    <span className="text-xs font-bold absolute -top-4 font-mono text-purple-700 bg-white border border-purple-500 px-1.5 py-0.5 float-item-animation shadow-sm">{giftState.item}</span>
-                                    <span>📂</span>
-                                  </div>
-                                ) : (
-                                  <span>🎁</span>
-                                )}
-                              </div>
-                            </div>
-                            <div className="h-4 bg-pixelDarkBlue w-full"></div>
-                          </div>
+                          <div className="h-4 bg-pixelDarkBlue w-full"></div>
                         </div>
                         
                         <div className="absolute bottom-0 left-0 w-32 h-16 bg-white opacity-40 rounded-full -ml-8 -mb-8 pointer-events-none"></div>
                       </section>
 
-                      <section className="bg-pixelBlue p-6 relative overflow-hidden min-h-[360px] border-4 border-pixelDarkBlue entrance-card stagger-2 tilt-card" data-purpose="panel-numbers">
-                        <div className="light-sweep"></div>
-                        <div className="tilt-card-inner flex flex-col justify-between h-full w-full">
-                          <div className="flex justify-between mb-8 select-none">
-                            <h2 className="heading-large font-extrabold">STATS</h2>
-                            <div className="flex gap-1.5 text-pink-500 cursor-pointer" onClick={handleHeartClick}>
-                              {Array.from({ length: 3 }).map((_, i) => (
-                                <span key={i} className={i < hearts ? 'opacity-100' : 'opacity-20'}>♥</span>
-                              ))}
-                            </div>
-                          </div>
-                          
-                          <div className="grid grid-cols-3 gap-y-12 gap-x-4 relative">
-                            
-                            {/* Floating Click particles */}
-                            {clickParticles.map(p => (
-                              <span 
-                                key={p.id} 
-                                className="absolute text-sm font-extrabold text-green-600 particle"
-                                style={{ left: p.x, top: p.y }}
-                              >
-                                +1
-                              </span>
+                      {/* STATS PANEL */}
+                      <section className="bg-pixelBlue p-6 relative overflow-hidden min-h-[360px] border-4 border-pixelDarkBlue entrance-card stagger-2" data-purpose="panel-numbers">
+                        <div className="flex justify-between mb-8 select-none">
+                          <h2 className="heading-large font-extrabold">STATS</h2>
+                          <div className="flex gap-1.5 text-pink-500 cursor-pointer" onClick={handleHeartClick}>
+                            {Array.from({ length: 3 }).map((_, i) => (
+                              <span key={i} className={i < hearts ? 'opacity-100' : 'opacity-20'}>♥</span>
                             ))}
-
-                            {/* Stat 1 */}
-                            <div 
-                              onClick={(e) => handleStatClick('n1', e)}
-                              className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
-                            >
-                              <div className="text-3xl mb-1 font-extrabold text-sky-800">{numbersIncrement.n1}</div>
-                              <div className="text-xs font-bold uppercase tracking-tight">GRAD YEAR</div>
-                              <div className="text-xs text-gray-500 mt-1">B.Tech CSE MUJ</div>
-                            </div>
-
-                            {/* Stat 2 */}
-                            <div 
-                              onClick={(e) => handleStatClick('n2', e)}
-                              className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
-                            >
-                              <div className="flex justify-center mb-1"><div className="w-8 h-8 bg-purple-400 pixel-border border-2 animate-bounce"></div></div>
-                              <div className="text-3xl mb-1 font-extrabold">{numbersIncrement.n2}</div>
-                              <div className="text-xs font-bold uppercase tracking-tight">CORE PROJECTS</div>
-                              <div className="text-xs text-gray-500 mt-1">Full-stack & AI</div>
-                            </div>
-
-                            {/* Stat 3 */}
-                            <div 
-                              onClick={(e) => handleStatClick('n3', e)}
-                              className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
-                            >
-                              <div className="flex justify-center mb-1"><div className="w-8 h-8 bg-blue-300 pixel-border border-2 animate-bounce" style={{ animationDelay: '0.3s' }}></div></div>
-                              <div className="text-3xl mb-1 font-extrabold">{numbersIncrement.n3}%</div>
-                              <div className="text-xs font-bold uppercase tracking-tight">CLASS X</div>
-                              <div className="text-xs text-gray-500 mt-1">DPS Faridabad</div>
-                            </div>
-
-                            {/* Stat 4 */}
-                            <div 
-                              onClick={(e) => handleStatClick('n4', e)}
-                              className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
-                            >
-                              <div className="text-3xl mb-1 font-extrabold text-sky-800">{numbersIncrement.n4}%</div>
-                              <div className="text-xs font-bold uppercase tracking-tight">CLASS XII</div>
-                              <div className="text-xs text-gray-500 mt-1">DPS Faridabad</div>
-                            </div>
-
-                            {/* Stat 5 */}
-                            <div 
-                              onClick={(e) => handleStatClick('n5', e)}
-                              className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
-                            >
-                              <div className="flex justify-center mb-1"><div className="w-8 h-8 bg-white border-2 border-pixelDarkBlue flex items-center justify-center hover:rotate-12 transition-transform">👍</div></div>
-                              <div className="text-3xl mb-1 font-extrabold">{numbersIncrement.n5}</div>
-                              <div className="text-xs font-bold uppercase tracking-tight">LEADERSHIP</div>
-                              <div className="text-xs text-gray-500 mt-1">Fest Operations</div>
-                            </div>
-
-                            {/* Stat 6 */}
-                            <div 
-                              onClick={(e) => handleStatClick('n6', e)}
-                              className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
-                            >
-                              <div className="flex justify-center mb-1"><div className="w-8 h-8 text-yellow-500 flex items-center justify-center hover:scale-110 transition-transform animate-spin" style={{ animationDuration: '6s' }}>★</div></div>
-                              <div className="text-3xl mb-1 font-extrabold">{numbersIncrement.n6}</div>
-                              <div className="text-xs font-bold uppercase tracking-tight">BA CERT</div>
-                              <div className="text-xs text-gray-500 mt-1">Fundamentals</div>
-                            </div>
-
                           </div>
-                          <div className="absolute bottom-0 right-0 w-48 h-20 bg-white opacity-50 rounded-full translate-x-10 translate-y-10 pointer-events-none"></div>
                         </div>
+                        
+                        <div className="grid grid-cols-3 gap-y-12 gap-x-4 relative">
+                          
+                          {/* Floating Click particles */}
+                          {clickParticles.map(p => (
+                            <span 
+                              key={p.id} 
+                              className="absolute text-sm font-extrabold text-green-600 particle"
+                              style={{ left: p.x, top: p.y }}
+                            >
+                              +1
+                            </span>
+                          ))}
+
+                          {/* Stat 1 */}
+                          <div 
+                            onClick={(e) => handleStatClick('n1', e)}
+                            className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
+                          >
+                            <div className="text-3xl mb-1 font-extrabold text-sky-800">{numbersIncrement.n1}</div>
+                            <div className="text-xs font-bold uppercase tracking-tight">GRAD YEAR</div>
+                            <div className="text-xs text-gray-500 mt-1">B.Tech CSE MUJ</div>
+                          </div>
+
+                          {/* Stat 2 */}
+                          <div 
+                            onClick={(e) => handleStatClick('n2', e)}
+                            className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
+                          >
+                            <div className="flex justify-center mb-1"><div className="w-8 h-8 bg-purple-400 pixel-border border-2 animate-bounce"></div></div>
+                            <div className="text-3xl mb-1 font-extrabold">{numbersIncrement.n2}</div>
+                            <div className="text-xs font-bold uppercase tracking-tight">CORE PROJECTS</div>
+                            <div className="text-xs text-gray-500 mt-1">Full-stack & AI</div>
+                          </div>
+
+                          {/* Stat 3 */}
+                          <div 
+                            onClick={(e) => handleStatClick('n3', e)}
+                            className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
+                          >
+                            <div className="flex justify-center mb-1"><div className="w-8 h-8 bg-blue-300 pixel-border border-2 animate-bounce" style={{ animationDelay: '0.3s' }}></div></div>
+                            <div className="text-3xl mb-1 font-extrabold">{numbersIncrement.n3}%</div>
+                            <div className="text-xs font-bold uppercase tracking-tight">CLASS X</div>
+                            <div className="text-xs text-gray-500 mt-1">DPS Faridabad</div>
+                          </div>
+
+                          {/* Stat 4 */}
+                          <div 
+                            onClick={(e) => handleStatClick('n4', e)}
+                            className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
+                          >
+                            <div className="text-3xl mb-1 font-extrabold text-sky-800">{numbersIncrement.n4}%</div>
+                            <div className="text-xs font-bold uppercase tracking-tight">CLASS XII</div>
+                            <div className="text-xs text-gray-500 mt-1">DPS Faridabad</div>
+                          </div>
+
+                          {/* Stat 5 */}
+                          <div 
+                            onClick={(e) => handleStatClick('n5', e)}
+                            className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
+                          >
+                            <div className="flex justify-center mb-1"><div className="w-8 h-8 bg-white border-2 border-pixelDarkBlue flex items-center justify-center hover:rotate-12 transition-transform">👍</div></div>
+                            <div className="text-3xl mb-1 font-extrabold">{numbersIncrement.n5}</div>
+                            <div className="text-xs font-bold uppercase tracking-tight">LEADERSHIP</div>
+                            <div className="text-xs text-gray-500 mt-1">Fest Operations</div>
+                          </div>
+
+                          {/* Stat 6 */}
+                          <div 
+                            onClick={(e) => handleStatClick('n6', e)}
+                            className="text-center cursor-pointer hover:scale-105 active:scale-95 transition-transform select-none"
+                          >
+                            <div className="flex justify-center mb-1"><div className="w-8 h-8 text-yellow-500 flex items-center justify-center hover:scale-110 transition-transform animate-spin" style={{ animationDuration: '6s' }}>★</div></div>
+                            <div className="text-3xl mb-1 font-extrabold">{numbersIncrement.n6}</div>
+                            <div className="text-xs font-bold uppercase tracking-tight">BA CERT</div>
+                            <div className="text-xs text-gray-500 mt-1">Fundamentals</div>
+                          </div>
+
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-48 h-20 bg-white opacity-50 rounded-full translate-x-10 translate-y-10 pointer-events-none"></div>
                       </section>
 
                     </main>
@@ -2219,312 +1532,301 @@
                     
                     <main className="pixel-grid text-slate-800 w-full max-w-full">
                       {/* MISSION PANEL */}
-                      <section className="card-container flex flex-col justify-between entrance-card stagger-1 tilt-card" data-purpose="goals-section">
-                        <div className="light-sweep"></div>
-                        <div className="tilt-card-inner flex flex-col justify-between h-full w-full">
-                          <div className="pixel-cloud" style={{ width: goalsClouds[0].width, height: goalsClouds[0].height, top: `${goalsClouds[0].top}%`, left: `${goalsClouds[0].left}%` }}></div>
-                          <div className="pixel-cloud" style={{ width: goalsClouds[1].width, height: goalsClouds[1].height, top: `${goalsClouds[1].top}%`, left: `${goalsClouds[1].left}%` }}></div>
+                      <section className="card-container flex flex-col justify-between entrance-card stagger-1" data-purpose="goals-section">
+                        <div className="pixel-cloud" style={{ width: goalsClouds[0].width, height: goalsClouds[0].height, top: `${goalsClouds[0].top}%`, left: `${goalsClouds[0].left}%` }}></div>
+                        <div className="pixel-cloud" style={{ width: goalsClouds[1].width, height: goalsClouds[1].height, top: `${goalsClouds[1].top}%`, left: `${goalsClouds[1].left}%` }}></div>
 
-                          <div className="absolute top-4 right-4 flex gap-1 cursor-pointer select-none font-bold" onClick={handleHeartClick}>
-                            {Array.from({ length: 3 }).map((_, i) => (
-                              <span key={i} className={`text-base transition-colors ${i < hearts ? 'text-pink-500' : 'text-slate-400 opacity-20'}`}>
-                                ♥
-                              </span>
-                            ))}
+                        <div className="absolute top-4 right-4 flex gap-1 cursor-pointer select-none font-bold" onClick={handleHeartClick}>
+                          {Array.from({ length: 3 }).map((_, i) => (
+                            <span key={i} className={`text-base transition-colors ${i < hearts ? 'text-pink-500' : 'text-slate-400 opacity-20'}`}>
+                              ♥
+                            </span>
+                          ))}
+                        </div>
+
+                        <h2 className="pixel-header text-left font-extrabold text-pixelDarkBlue uppercase tracking-wide">MISSION</h2>
+                        
+                        <div className="flex flex-col sm:flex-row items-start gap-8">
+                          <div className="w-full sm:w-1/2 text-left">
+                            <ul className="space-y-3 mb-6 text-sm font-bold text-slate-700">
+                              <li className="flex items-center gap-2">
+                                <span className="text-purple-600 text-base">✦</span>
+                                <span>Build impactful SaaS</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <span className="text-purple-600 text-base">✦</span>
+                                <span>Solve business problems</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <span className="text-purple-600 text-base">✦</span>
+                                <span>Design scalable APIs</span>
+                              </li>
+                              <li className="flex items-center gap-2">
+                                <span className="text-purple-600 text-base">✦</span>
+                                <span>Bridge Business + Technology</span>
+                              </li>
+                            </ul>
+                            <p className="text-xs text-slate-500 font-semibold leading-normal">
+                              Using structured system analysis to transform user stories into high-performance web products.
+                            </p>
                           </div>
 
-                          <h2 className="pixel-header text-left font-extrabold text-pixelDarkBlue uppercase tracking-wide">MISSION</h2>
-                          
-                          <div className="flex flex-col sm:flex-row items-start gap-8">
-                            <div className="w-full sm:w-1/2 text-left">
-                              <ul className="space-y-3 mb-6 text-sm font-bold text-slate-700">
-                                <li className="flex items-center gap-2">
-                                  <span className="text-purple-600 text-base">✦</span>
-                                  <span>Build impactful SaaS</span>
-                                </li>
-                                <li className="flex items-center gap-2">
-                                  <span className="text-purple-600 text-base">✦</span>
-                                  <span>Solve business problems</span>
-                                </li>
-                                <li className="flex items-center gap-2">
-                                  <span className="text-purple-600 text-base">✦</span>
-                                  <span>Design scalable APIs</span>
-                                </li>
-                                <li className="flex items-center gap-2">
-                                  <span className="text-purple-600 text-base">✦</span>
-                                  <span>Bridge Business + Technology</span>
-                                </li>
-                              </ul>
-                              <p className="text-xs text-slate-500 font-semibold leading-normal">
-                                Using structured system analysis to transform user stories into high-performance web products.
-                              </p>
-                            </div>
+                          {/* Handheld Console Sprite */}
+                          <div className="flex-grow flex justify-center relative select-none">
+                            <div className="w-32 h-44 bg-pink-300 goals-border relative flex flex-col items-center pt-4 shadow-md">
+                              
+                              <div className="w-24 h-20 bg-green-200 border-2 border-slate-800 flex items-center justify-center p-2 text-center font-mono relative overflow-hidden">
+                                <span className="text-xs leading-tight text-green-800 font-extrabold">{consoleMessage}</span>
+                                <div className="absolute inset-0 bg-slate-900/5 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 1px, black 1px, black 2px)' }} />
+                              </div>
 
-                            {/* Handheld Console Sprite */}
-                            <div className="flex-grow flex justify-center relative select-none">
-                              <div className="w-32 h-44 bg-pink-300 goals-border relative flex flex-col items-center pt-4 shadow-md">
-                                
-                                <div className="w-24 h-20 bg-green-200 border-2 border-slate-800 flex items-center justify-center p-2 text-center font-mono relative overflow-hidden">
-                                  <span className="text-xs leading-tight text-green-800 font-extrabold">{consoleMessage}</span>
-                                  <div className="absolute inset-0 bg-slate-900/5 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 1px, black 1px, black 2px)' }} />
-                                </div>
+                              <div className="absolute bottom-10 left-4 w-6 h-6 flex items-center justify-center">
+                                <button 
+                                  onClick={() => handleGameboyPress('up', 'SQL OK')} 
+                                  className={`absolute w-2.5 h-6 bg-yellow-400 border border-slate-800 ${
+                                    depressedBtn === 'up' ? 'translate-y-0.5 scale-95 shadow-none' : 'shadow'
+                                  } transition-all`}
+                                ></button>
+                                <button 
+                                  onClick={() => handleGameboyPress('left', 'KPI ACTIVE')} 
+                                  className={`absolute w-6 h-2.5 bg-yellow-400 border border-slate-800 ${
+                                    depressedBtn === 'left' ? 'translate-y-0.5 scale-95 shadow-none' : 'shadow'
+                                  } transition-all`}
+                                ></button>
+                              </div>
 
-                                <div className="absolute bottom-10 left-4 w-6 h-6 flex items-center justify-center">
-                                  <button 
-                                    onClick={() => handleGameboyPress('up', 'SQL OK')} 
-                                    className={`absolute w-2.5 h-6 bg-yellow-400 border border-slate-800 ${
-                                      depressedBtn === 'up' ? 'translate-y-0.5 scale-95 shadow-none' : 'shadow'
-                                    } transition-all`}
-                                  ></button>
-                                  <button 
-                                    onClick={() => handleGameboyPress('left', 'KPI ACTIVE')} 
-                                    className={`absolute w-6 h-2.5 bg-yellow-400 border border-slate-800 ${
-                                      depressedBtn === 'left' ? 'translate-y-0.5 scale-95 shadow-none' : 'shadow'
-                                    } transition-all`}
-                                  ></button>
-                                </div>
-
-                                <div className="absolute bottom-10 right-4 flex flex-col gap-2">
-                                  <button 
-                                    onClick={() => handleGameboyPress('a', 'NEXT.JS UP')} 
-                                    className={`w-3 h-3 bg-purple-600 rounded-full border border-slate-800 ${
-                                      depressedBtn === 'a' ? 'scale-75 translate-y-0.5' : ''
-                                    } transition-all shadow-sm`}
-                                  ></button>
-                                  <button 
-                                    onClick={() => handleGameboyPress('b', 'CRO SYNCED')} 
-                                    className={`w-3 h-3 bg-purple-600 rounded-full border border-slate-800 ${
-                                      depressedBtn === 'b' ? 'scale-75 translate-y-0.5' : ''
-                                    } transition-all shadow-sm`}
-                                  ></button>
-                                </div>
+                              <div className="absolute bottom-10 right-4 flex flex-col gap-2">
+                                <button 
+                                  onClick={() => handleGameboyPress('a', 'NEXT.JS UP')} 
+                                  className={`w-3 h-3 bg-purple-600 rounded-full border border-slate-800 ${
+                                    depressedBtn === 'a' ? 'scale-75 translate-y-0.5' : ''
+                                  } transition-all shadow-sm`}
+                                ></button>
+                                <button 
+                                  onClick={() => handleGameboyPress('b', 'CRO SYNCED')} 
+                                  className={`w-3 h-3 bg-purple-600 rounded-full border border-slate-800 ${
+                                    depressedBtn === 'b' ? 'scale-75 translate-y-0.5' : ''
+                                  } transition-all shadow-sm`}
+                                ></button>
                               </div>
                             </div>
                           </div>
                         </div>
                       </section>
-                      {/* MINI JUMPING GAME CARD (Replaces Profile Photo Card) */}
-                      <section className="card-container text-left entrance-card stagger-2 flex flex-col justify-between items-center p-5 bg-sky-50 shadow-sm relative overflow-hidden min-h-[300px] tilt-card select-none" data-purpose="mini-game-section">
-                        <div className="light-sweep"></div>
-                        <div className="tilt-card-inner flex flex-col justify-between h-full w-full">
-                          
-                          <div className="flex justify-between items-center mb-2">
-                            <h2 className="pixel-header font-bold text-pixelDarkBlue uppercase tracking-wide">RUNNER TELEMETRY</h2>
-                            <div className="text-[10px] font-bold text-slate-700 font-mono flex gap-3">
-                              <span>HI: {String(highScore).padStart(4, '0')}</span>
-                              <span className="text-purple-700">SCORE: {String(gameScore).padStart(4, '0')}</span>
+
+                      {/* MENTAL HEALTH APP LIGHTHOUSE TELEMETRY */}
+                      <section className="card-container text-left entrance-card stagger-2" data-purpose="charts-section">
+                        <div className="pixel-cloud" style={{ width: goalsClouds[4].width, height: goalsClouds[4].height, top: `${goalsClouds[4].top}%`, left: `${goalsClouds[4].left}%` }}></div>
+
+                        <h2 className="pixel-header font-bold text-pixelDarkBlue uppercase tracking-wide">MENTAL HEALTH APP METRICS</h2>
+                        
+                        <div className="flex flex-col sm:flex-row gap-6 items-stretch">
+                          <div className="w-full sm:w-1/2 flex flex-col justify-between">
+                            <div className="space-y-3.5 font-sans font-semibold text-slate-700">
+                              
+                              <div className="flex flex-col gap-1">
+                                <div className="flex justify-between items-center text-xs">
+                                  <span className="font-bold text-slate-600">Lighthouse Performance</span>
+                                  <span className="text-green-600 font-extrabold">96 / 100</span>
+                                </div>
+                                <div className="w-full h-3 bg-slate-200 border border-slate-800 overflow-hidden p-0.5">
+                                  <div className="bg-green-500 h-full" style={{ width: '96%' }}></div>
+                                </div>
+                              </div>
+
+                              <div className="flex flex-col gap-1">
+                                <div className="flex justify-between items-center text-xs">
+                                  <span className="font-bold text-slate-600">Accessibility Score</span>
+                                  <span className="text-green-600 font-extrabold">98 / 100</span>
+                                </div>
+                                <div className="w-full h-3 bg-slate-200 border border-slate-800 overflow-hidden p-0.5">
+                                  <div className="bg-green-500 h-full" style={{ width: '98%' }}></div>
+                                </div>
+                              </div>
+
+                              <div className="flex flex-col gap-1">
+                                <div className="flex justify-between items-center text-xs">
+                                  <span className="font-bold text-slate-600">Best Practices</span>
+                                  <span className="text-green-600 font-extrabold">100 / 100</span>
+                                </div>
+                                <div className="w-full h-3 bg-slate-200 border border-slate-800 overflow-hidden p-0.5">
+                                  <div className="bg-green-500 h-full" style={{ width: '100%' }}></div>
+                                </div>
+                              </div>
+
+                              <div className="flex flex-col gap-1">
+                                <div className="flex justify-between items-center text-xs">
+                                  <span className="font-bold text-slate-600">SEO Rating</span>
+                                  <span className="text-green-600 font-extrabold">100 / 100</span>
+                                </div>
+                                <div className="w-full h-3 bg-slate-200 border border-slate-800 overflow-hidden p-0.5">
+                                  <div className="bg-green-500 h-full" style={{ width: '100%' }}></div>
+                                </div>
+                              </div>
+
                             </div>
                           </div>
 
-                          {/* Game screen viewport */}
-                          <div 
-                            onClick={handleGameJump}
-                            className="w-full flex-grow bg-white border-2 border-pixelDarkBlue relative overflow-hidden cursor-pointer flex flex-col justify-end"
-                            style={{ height: '170px' }}
-                          >
-                            <div className="absolute top-2 left-3 text-[9px] font-sans font-bold text-slate-400 select-none pointer-events-none">
-                              {!gamePlaying ? "CLICK SCREEN OR SPACEBAR TO START" : gameOver ? "GAME OVER! CLICK TO RESTART" : "SPACEBAR OR CLICK TO JUMP"}
+                          <div className="flex-grow bg-emerald-50 border-2 border-slate-800 relative p-4 flex flex-col justify-end min-h-[160px] shadow-inner">
+                            <div className="absolute top-0 left-0 right-0 h-6 bg-white border-b-2 border-slate-800 flex items-center px-2 gap-1 select-none">
+                              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                              <span className="text-[9px] font-bold text-green-700 tracking-tight">LIGHTHOUSE VERIFIED REPORT</span>
+                            </div>
+                            
+                            <div className="flex items-end justify-around h-24 mb-2 px-2">
+                              <div className="w-4 bg-green-500 border border-slate-800 transition-all duration-300" style={{ height: '96%' }}></div>
+                              <div className="w-4 bg-green-600 border border-slate-800 transition-all duration-300" style={{ height: '98%' }}></div>
+                              <div className="w-4 bg-green-500 border border-slate-800 transition-all duration-300" style={{ height: '100%' }}></div>
+                              <div className="w-4 bg-green-600 border border-slate-800 transition-all duration-300" style={{ height: '100%' }}></div>
+                            </div>
+                            
+                            <div className="text-center border-t border-slate-800/10 pt-2">
+                              <h3 className="text-[9px] font-extrabold uppercase text-slate-500">MERN Stack Chrome DevTools Audit</h3>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+                      {/* CAPABILITIES & LEADERSHIP PROFILE */}
+                      <section className="card-container text-left col-span-1 md:col-span-2 entrance-card stagger-3" data-purpose="recruiter-skill-leadership-merge">
+                        <h2 className="pixel-header font-bold text-pixelDarkBlue uppercase tracking-wide">
+                          CAPABILITIES & LEADERSHIP PROFILE
+                        </h2>
+                        
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                          
+                          {/* Left Column: Skill progress sliders & Certification box */}
+                          <div className="flex flex-col justify-between space-y-6">
+                            <div className="space-y-4 font-sans font-semibold text-slate-700">
+                              <span className="text-[10px] text-purple-700 font-extrabold tracking-wider block">CORE TECHNOLOGY & METHODOLOGY METRICS</span>
+                              
+                              <div className="flex flex-col gap-1.5">
+                                <div className="flex justify-between items-center text-xs">
+                                  <span>MERN STACK (React & Next.js)</span>
+                                  <span className="text-purple-600 font-extrabold">95%</span>
+                                </div>
+                                <div className="w-full h-4 bg-slate-200 border-2 border-slate-800 overflow-hidden p-0.5">
+                                  <div className="bg-purple-500 h-full" style={{ width: '95%' }}></div>
+                                </div>
+                              </div>
+
+                              <div className="flex flex-col gap-1.5">
+                                <div className="flex justify-between items-center text-xs">
+                                  <span>SQL & DATABASE SCHEMAS</span>
+                                  <span className="text-purple-600 font-extrabold">85%</span>
+                                </div>
+                                <div className="w-full h-4 bg-slate-200 border-2 border-slate-800 overflow-hidden p-0.5">
+                                  <div className="bg-purple-400 h-full" style={{ width: '85%' }}></div>
+                                </div>
+                              </div>
+
+                              <div className="flex flex-col gap-1.5">
+                                <div className="flex justify-between items-center text-xs">
+                                  <span>BUSINESS ANALYSIS & CRO</span>
+                                  <span className="text-purple-600 font-extrabold">80%</span>
+                                </div>
+                                <div className="w-full h-4 bg-slate-200 border-2 border-slate-800 overflow-hidden p-0.5">
+                                  <div className="bg-purple-500 h-full" style={{ width: '80%' }}></div>
+                                </div>
+                              </div>
                             </div>
 
-                            {/* Pixel Sky Clouds */}
-                            <div className="absolute top-4 right-10 w-8 h-2 bg-slate-200" style={{ boxShadow: '4px 4px 0 0 #e2e8f0, -4px 4px 0 0 #e2e8f0' }}></div>
-                            <div className="absolute top-8 left-12 w-6 h-2 bg-slate-200 opacity-60" style={{ boxShadow: '3px 3px 0 0 #e2e8f0, -3px 3px 0 0 #e2e8f0' }}></div>
+                            <div className="bg-pink-50 border-2 border-slate-800 p-3 flex justify-between items-center shadow-inner font-sans font-semibold text-xs text-slate-700">
+                              <div>
+                                <span className="text-[10px] text-game-purple font-bold block mb-1">DECRYPTED CREDENTIAL</span>
+                                Business Analysis Fundamentals Certification
+                              </div>
+                              <span className="text-xl">🏆</span>
+                            </div>
+                          </div>
 
-                            {/* Ground Line */}
-                            <div className="w-full h-8 bg-slate-100 border-t-2 border-pixelDarkBlue relative z-10 flex items-center overflow-hidden">
-                              {/* Rolling Ground Dashes to simulate speed */}
-                              {gamePlaying && !gameOver && (
-                                <div className="flex gap-16 animate-groundLoop shrink-0 w-[200%] text-slate-300 font-bold select-none text-[8px] font-mono">
-                                  <span>. . . . . . . . . . . .</span>
-                                  <span>. . . . . . . . . . . .</span>
-                                  <span>. . . . . . . . . . . .</span>
-                                  <span>. . . . . . . . . . . .</span>
+                          {/* Right Column: Leadership Org Tree & Decryption bubble */}
+                          <div className="flex flex-col justify-between border-t-2 border-dashed border-slate-800/10 pt-6 lg:border-t-0 lg:pt-0">
+                            <span className="text-[10px] text-purple-700 font-extrabold tracking-wider block mb-4">EXTRA-CURRICULAR OPERATIONS ORG TREE</span>
+                            
+                            <div className="flex flex-col items-center">
+                              {/* Org Top Root */}
+                              <div className="relative mb-8 select-none">
+                                <div className="w-8 h-8 bg-yellow-400 border-2 border-slate-800 flex items-center justify-center shadow-sm hover:scale-105 active:scale-95 transition-transform cursor-pointer">
+                                  <span className="text-xs">🏆</span>
                                 </div>
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-6 bg-slate-800"></div>
+                              </div>
+
+                              <div className="w-full relative px-4 pt-4">
+                                {/* Horizontal Connector */}
+                                <div className="absolute top-0 left-12 right-12 h-px bg-slate-800"></div>
+                                
+                                <div className="grid grid-cols-3 gap-4">
+                                  
+                                  {/* Role 1 */}
+                                  <div 
+                                    onClick={() => setSelectedTeamBio(selectedTeamBio === 'member1' ? null : 'member1')}
+                                    className="flex flex-col items-center relative cursor-pointer group"
+                                  >
+                                    <div className="absolute top-0 w-px h-4 bg-slate-800 -translate-y-4"></div>
+                                    <div className={`w-12 h-12 border-2 mb-2 flex items-center justify-center shadow-sm transition-all duration-150 hover:scale-105 active:scale-95 ${
+                                      selectedTeamBio === 'member1' ? 'bg-game-purple text-white border-slate-800' : 'bg-white border-slate-800'
+                                    }`}>
+                                      <div className="w-6 h-8 bg-blue-300 border border-slate-800 animate-pulse"></div>
+                                    </div>
+                                    <div className="text-center leading-tight">
+                                      <p className="text-[10px] font-bold mb-0.5 group-hover:text-purple-700">ONEIROS 25</p>
+                                      <p className="text-[9px] text-slate-500 font-sans font-semibold">Operations</p>
+                                    </div>
+                                  </div>
+
+                                  {/* Role 2 */}
+                                  <div 
+                                    onClick={() => setSelectedTeamBio(selectedTeamBio === 'member2' ? null : 'member2')}
+                                    className="flex flex-col items-center relative cursor-pointer group"
+                                  >
+                                    <div className="absolute top-0 w-px h-4 bg-slate-800 -translate-y-4"></div>
+                                    <div className={`w-12 h-12 border-2 mb-2 flex items-center justify-center shadow-sm transition-all duration-150 hover:scale-105 active:scale-95 ${
+                                      selectedTeamBio === 'member2' ? 'bg-game-purple text-white border-slate-800' : 'bg-white border-slate-800'
+                                    }`}>
+                                      <div className="w-6 h-8 bg-yellow-200 border border-slate-800"></div>
+                                    </div>
+                                    <div className="text-center leading-tight">
+                                      <p className="text-[10px] font-bold mb-0.5 group-hover:text-purple-700">SIH 2024</p>
+                                      <p className="text-[9px] text-slate-500 font-sans font-semibold">Coordinator</p>
+                                    </div>
+                                  </div>
+
+                                  {/* Role 3 */}
+                                  <div 
+                                    onClick={() => setSelectedTeamBio(selectedTeamBio === 'member3' ? null : 'member3')}
+                                    className="flex flex-col items-center relative cursor-pointer group"
+                                  >
+                                    <div className="absolute top-0 w-px h-4 bg-slate-800 -translate-y-4"></div>
+                                    <div className={`w-12 h-12 border-2 mb-2 flex items-center justify-center shadow-sm transition-all duration-150 hover:scale-105 active:scale-95 ${
+                                      selectedTeamBio === 'member3' ? 'bg-game-purple text-white border-slate-800' : 'bg-white border-slate-800'
+                                    }`}>
+                                      <div className="w-6 h-8 bg-green-200 border border-slate-800"></div>
+                                    </div>
+                                    <div className="text-center leading-tight">
+                                      <p className="text-[10px] font-bold mb-0.5 group-hover:text-purple-700">CACTUS MUJ</p>
+                                      <p className="text-[9px] text-slate-500 font-sans font-semibold">Working Team</p>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Bio Reveal dialogue bubble */}
+                            <div className="mt-6 min-h-[64px] flex items-center justify-center">
+                              {selectedTeamBio ? (
+                                <div className="w-full bg-white border-2 border-slate-800 p-3 text-left text-xs font-sans font-medium leading-normal animate-fadeIn shadow-sm text-slate-700">
+                                  <span className="text-[9px] text-game-purple font-bold block mb-0.5 uppercase">{teamBios[selectedTeamBio].name}</span>
+                                  <p>{teamBios[selectedTeamBio].bio}</p>
+                                </div>
+                              ) : (
+                                <span className="text-[10px] text-slate-400 italic font-sans font-medium">Select a node above to decrypt operations experience logs</span>
                               )}
                             </div>
-
-                            {/* Character (Runner) */}
-                            <div 
-                              className={`absolute left-[18%] bottom-[32px] w-8 h-8 z-20 flex items-center justify-center text-2xl transition-all duration-[600ms] ${
-                                isJumping ? 'translate-y-[-52px] rotate-[-12deg]' : 'translate-y-0'
-                              }`}
-                            >
-                              {gameOver ? "💥" : isJumping ? "🏃‍♀️" : "🏃‍♀️"}
-                            </div>
-
-                            {/* Obstacle */}
-                            {gamePlaying && !gameOver && (
-                              <div 
-                                className="absolute bottom-[32px] w-6 h-6 z-20 flex items-center justify-center text-lg pointer-events-none"
-                                style={{ left: `${obstacleX}%` }}
-                              >
-                                {obstacleType === 0 ? "🌵" : obstacleType === 1 ? "🪨" : "💻"}
-                              </div>
-                            )}
-                            
-                            {/* Start / Game Over overlay screens */}
-                            {!gamePlaying && (
-                              <div className="absolute inset-0 bg-slate-900/5 flex flex-col items-center justify-center z-30">
-                                <span className="text-xs font-bold text-pixelDarkBlue bg-yellow-300 border-2 border-pixelDarkBlue px-3 py-1.5 shadow-sm hover:scale-105 active:scale-95 transition-transform">
-                                  START MINI GAME
-                                </span>
-                              </div>
-                            )}
-
-                            {gameOver && (
-                              <div className="absolute inset-0 bg-red-500/10 flex flex-col items-center justify-center z-30">
-                                <span className="text-[10px] font-extrabold text-white bg-red-600 border-2 border-pixelDarkBlue px-2.5 py-1.5 shadow-sm">
-                                  PLAY AGAIN
-                                </span>
-                              </div>
-                            )}
-
                           </div>
-                        </div>
-                      </section>
-                      {/* CAPABILITIES & LEADERSHIP PROFILE */}
-                      <section className="card-container text-left col-span-1 md:col-span-2 entrance-card stagger-3 tilt-card" data-purpose="recruiter-skill-leadership-merge">
-                        <div className="light-sweep"></div>
-                        <div className="tilt-card-inner flex flex-col justify-between h-full w-full">
-                          <h2 className="pixel-header font-bold text-pixelDarkBlue uppercase tracking-wide">
-                            CAPABILITIES & LEADERSHIP PROFILE
-                          </h2>
-                          
-                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                            
-                            {/* Left Column: Skill progress sliders & Certification box */}
-                            <div className="flex flex-col justify-between space-y-6">
-                              <div className="space-y-4 font-sans font-semibold text-slate-700">
-                                <span className="text-[10px] text-purple-700 font-extrabold tracking-wider block">CORE TECHNOLOGY & METHODOLOGY METRICS</span>
-                                
-                                <div className="flex flex-col gap-1.5">
-                                  <div className="flex justify-between items-center text-xs">
-                                    <span>MERN STACK (React & Next.js)</span>
-                                    <span className="text-purple-600 font-extrabold">95%</span>
-                                  </div>
-                                  <div className="w-full h-4 bg-slate-200 border-2 border-slate-800 overflow-hidden p-0.5">
-                                    <div className="bg-purple-500 h-full" style={{ width: '95%' }}></div>
-                                  </div>
-                                </div>
 
-                                <div className="flex flex-col gap-1.5">
-                                  <div className="flex justify-between items-center text-xs">
-                                    <span>SQL & DATABASE SCHEMAS</span>
-                                    <span className="text-purple-600 font-extrabold">85%</span>
-                                  </div>
-                                  <div className="w-full h-4 bg-slate-200 border-2 border-slate-800 overflow-hidden p-0.5">
-                                    <div className="bg-purple-400 h-full" style={{ width: '85%' }}></div>
-                                  </div>
-                                </div>
-
-                                <div className="flex flex-col gap-1.5">
-                                  <div className="flex justify-between items-center text-xs">
-                                    <span>BUSINESS ANALYSIS & CRO</span>
-                                    <span className="text-purple-600 font-extrabold">80%</span>
-                                  </div>
-                                  <div className="w-full h-4 bg-slate-200 border-2 border-slate-800 overflow-hidden p-0.5">
-                                    <div className="bg-purple-500 h-full" style={{ width: '80%' }}></div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div className="bg-pink-50 border-2 border-slate-800 p-3 flex justify-between items-center shadow-inner font-sans font-semibold text-xs text-slate-700">
-                                <div>
-                                  <span className="text-[10px] text-game-purple font-bold block mb-1">DECRYPTED CREDENTIAL</span>
-                                  Business Analysis Fundamentals Certification
-                                </div>
-                                <span className="text-xl">🏆</span>
-                              </div>
-                            </div>
-
-                            {/* Right Column: Leadership Org Tree & Decryption bubble */}
-                            <div className="flex flex-col justify-between border-t-2 border-dashed border-slate-800/10 pt-6 lg:border-t-0 lg:pt-0">
-                              <span className="text-[10px] text-purple-700 font-extrabold tracking-wider block mb-4">EXTRA-CURRICULAR OPERATIONS ORG TREE</span>
-                              
-                              <div className="flex flex-col items-center">
-                                {/* Org Top Root */}
-                                <div className="relative mb-8 select-none">
-                                  <div className="w-8 h-8 bg-yellow-400 border-2 border-slate-800 flex items-center justify-center shadow-sm hover:scale-105 active:scale-95 transition-transform cursor-pointer">
-                                    <span className="text-xs">🏆</span>
-                                  </div>
-                                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-6 bg-slate-800"></div>
-                                </div>
-
-                                <div className="w-full relative px-4 pt-4">
-                                  {/* Horizontal Connector */}
-                                  <div className="absolute top-0 left-[16.66%] right-[16.66%] h-px bg-slate-800"></div>
-                                  
-                                  <div className="grid grid-cols-3 gap-4">
-                                    
-                                    {/* Role 1 */}
-                                    <div 
-                                      onClick={() => setSelectedTeamBio(selectedTeamBio === 'member1' ? null : 'member1')}
-                                      className="flex flex-col items-center relative cursor-pointer group"
-                                    >
-                                      <div className="absolute top-0 w-px h-4 bg-slate-800 -translate-y-4"></div>
-                                      <div className={`w-12 h-12 border-2 mb-2 flex items-center justify-center shadow-sm transition-all duration-150 hover:scale-105 active:scale-95 ${
-                                        selectedTeamBio === 'member1' ? 'bg-game-purple text-white border-slate-800' : 'bg-white border-slate-800'
-                                      }`}>
-                                        <div className="w-6 h-8 bg-blue-300 border border-slate-800 animate-pulse"></div>
-                                      </div>
-                                      <div className="text-center leading-tight">
-                                        <p className="text-[10px] font-bold mb-0.5 group-hover:text-purple-700">ONEIROS 25</p>
-                                        <p className="text-[9px] text-slate-500 font-sans font-semibold">Operations</p>
-                                      </div>
-                                    </div>
-
-                                    {/* Role 2 */}
-                                    <div 
-                                      onClick={() => setSelectedTeamBio(selectedTeamBio === 'member2' ? null : 'member2')}
-                                      className="flex flex-col items-center relative cursor-pointer group"
-                                    >
-                                      <div className="absolute top-0 w-px h-4 bg-slate-800 -translate-y-4"></div>
-                                      <div className={`w-12 h-12 border-2 mb-2 flex items-center justify-center shadow-sm transition-all duration-150 hover:scale-105 active:scale-95 ${
-                                        selectedTeamBio === 'member2' ? 'bg-game-purple text-white border-slate-800' : 'bg-white border-slate-800'
-                                      }`}>
-                                        <div className="w-6 h-8 bg-yellow-200 border border-slate-800"></div>
-                                      </div>
-                                      <div className="text-center leading-tight">
-                                        <p className="text-[10px] font-bold mb-0.5 group-hover:text-purple-700">SIH 2024</p>
-                                        <p className="text-[9px] text-slate-500 font-sans font-semibold">Coordinator</p>
-                                      </div>
-                                    </div>
-
-                                    {/* Role 3 */}
-                                    <div 
-                                      onClick={() => setSelectedTeamBio(selectedTeamBio === 'member3' ? null : 'member3')}
-                                      className="flex flex-col items-center relative cursor-pointer group"
-                                    >
-                                      <div className="absolute top-0 w-px h-4 bg-slate-800 -translate-y-4"></div>
-                                      <div className={`w-12 h-12 border-2 mb-2 flex items-center justify-center shadow-sm transition-all duration-150 hover:scale-105 active:scale-95 ${
-                                        selectedTeamBio === 'member3' ? 'bg-game-purple text-white border-slate-800' : 'bg-white border-slate-800'
-                                      }`}>
-                                        <div className="w-6 h-8 bg-green-200 border border-slate-800"></div>
-                                      </div>
-                                      <div className="text-center leading-tight">
-                                        <p className="text-[10px] font-bold mb-0.5 group-hover:text-purple-700">CACTUS MUJ</p>
-                                        <p className="text-[9px] text-slate-500 font-sans font-semibold">Working Team</p>
-                                      </div>
-                                    </div>
-
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Bio Reveal dialogue bubble */}
-                              <div className="mt-6 min-h-[64px] flex items-center justify-center">
-                                {selectedTeamBio ? (
-                                  <div className="w-full bg-white border-2 border-slate-800 p-3 text-left text-xs font-sans font-medium leading-normal animate-fadeIn shadow-sm text-slate-700">
-                                    <span className="text-[9px] text-game-purple font-bold block mb-0.5 uppercase">{teamBios[selectedTeamBio].name}</span>
-                                    <p>{teamBios[selectedTeamBio].bio}</p>
-                                  </div>
-                                ) : (
-                                  <span className="text-[10px] text-slate-400 italic font-sans font-medium">Select a node above to decrypt operations experience logs</span>
-                                )}
-                              </div>
-                            </div>
-
-                          </div>
                         </div>
                       </section>
 
@@ -2737,119 +2039,113 @@
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start text-left">
                       
                       {/* Left: Contact Details */}
-                      <div className="bg-white border-2 border-pixelDarkBlue p-6 relative shadow-sm tilt-card">
-                        <div className="light-sweep"></div>
-                        <div className="tilt-card-inner flex flex-col justify-between h-full w-full">
-                          <div className="pixel-window-header absolute top-0 left-0 w-full"></div>
-                          
-                          <div className="mt-4 space-y-4 text-sm font-bold text-slate-700 font-mono select-all">
-                            <div className="flex items-center gap-3">
-                              <span className="text-lg">📧</span>
-                              <div>
-                                <span className="text-[10px] text-gray-400 block font-sans">EMAIL ADDRESS</span>
-                                <span>prachichauhan1785@gmail.com</span>
-                              </div>
+                      <div className="bg-white border-2 border-pixelDarkBlue p-6 relative shadow-sm">
+                        <div className="pixel-window-header absolute top-0 left-0 w-full"></div>
+                        
+                        <div className="mt-4 space-y-4 text-sm font-bold text-slate-700 font-mono select-all">
+                          <div className="flex items-center gap-3">
+                            <span className="text-lg">📧</span>
+                            <div>
+                              <span className="text-[10px] text-gray-400 block font-sans">EMAIL ADDRESS</span>
+                              <span>prachichauhan1785@gmail.com</span>
                             </div>
+                          </div>
 
-                            <div className="flex items-center gap-3">
-                              <span className="text-lg">📞</span>
-                              <div>
-                                <span className="text-[10px] text-gray-400 block font-sans">PHONE NUMBER</span>
-                                <span>+91-9510150776</span>
-                              </div>
+                          <div className="flex items-center gap-3">
+                            <span className="text-lg">📞</span>
+                            <div>
+                              <span className="text-[10px] text-gray-400 block font-sans">PHONE NUMBER</span>
+                              <span>+91-9510150776</span>
                             </div>
+                          </div>
 
-                            <div className="flex items-center gap-3">
-                              <span className="text-lg">🐙</span>
-                              <div>
-                                <span className="text-[10px] text-gray-400 block font-sans">GITHUB PROFILE</span>
-                                <a href="https://github.com/prachi1785" target="_blank" className="text-blue-600 underline font-mono">github.com/prachi1785</a>
-                              </div>
+                          <div className="flex items-center gap-3">
+                            <span className="text-lg">🐙</span>
+                            <div>
+                              <span className="text-[10px] text-gray-400 block font-sans">GITHUB PROFILE</span>
+                              <a href="https://github.com/prachi1785" target="_blank" className="text-blue-600 underline font-mono">github.com/prachi1785</a>
                             </div>
+                          </div>
 
-                            <div className="flex items-center gap-3">
-                              <span className="text-lg">💼</span>
-                              <div>
-                                <span className="text-[10px] text-gray-400 block font-sans">LINKEDIN URL</span>
-                                <a href="https://linkedin.com/in/prachi-chauhan-15024b214" target="_blank" className="text-blue-600 underline font-mono font-medium">linkedin.com/in/prachi-chauhan-15024b214</a>
-                              </div>
+                          <div className="flex items-center gap-3">
+                            <span className="text-lg">💼</span>
+                            <div>
+                              <span className="text-[10px] text-gray-400 block font-sans">LINKEDIN URL</span>
+                              <a href="https://linkedin.com/in/prachi-chauhan-15024b214" target="_blank" className="text-blue-600 underline font-mono font-medium">linkedin.com/in/prachi-chauhan-15024b214</a>
                             </div>
                           </div>
                         </div>
                       </div>
 
                       {/* Right: Email dispatcher console */}
-                      <div className="bg-white border-2 border-pixelDarkBlue p-6 relative shadow-sm flex flex-col justify-between min-h-[220px] tilt-card">
-                        <div className="light-sweep"></div>
-                        <div className="tilt-card-inner flex flex-col justify-between h-full w-full">
-                          <div className="pixel-window-header absolute top-0 left-0 w-full"></div>
+                      <div className="bg-white border-2 border-pixelDarkBlue p-6 relative shadow-sm flex flex-col justify-between min-h-[220px]">
+                        <div className="pixel-window-header absolute top-0 left-0 w-full"></div>
+                        
+                        <form onSubmit={handleEmailSubmit} className="mt-4 space-y-3.5">
+                          <span className="text-[10px] text-purple-700 font-extrabold tracking-wider block">CONTACT ME</span>
                           
-                          <form onSubmit={handleEmailSubmit} className="mt-4 space-y-3.5">
-                            <span className="text-[10px] text-purple-700 font-extrabold tracking-wider block">CONTACT ME</span>
-                            
-                            <div className="flex flex-col gap-1">
-                              <label className="text-[10px] font-bold text-slate-600">YOUR NAME</label>
-                              <input 
-                                type="text" 
-                                required
-                                value={emailName}
-                                onChange={(e) => setEmailName(e.target.value)}
-                                placeholder="e.g. John Doe"
-                                className="border-2 border-pixelDarkBlue p-2 text-xs font-bold text-slate-800 placeholder-gray-400 focus:outline-none focus:border-pixelPink"
-                              />
-                            </div>
+                          <div className="flex flex-col gap-1">
+                            <label className="text-[10px] font-bold text-slate-600">YOUR NAME</label>
+                            <input 
+                              type="text" 
+                              required
+                              value={emailName}
+                              onChange={(e) => setEmailName(e.target.value)}
+                              placeholder="e.g. John Doe"
+                              className="border-2 border-pixelDarkBlue p-2 text-xs font-bold text-slate-800 placeholder-gray-400 focus:outline-none focus:border-pixelPink"
+                            />
+                          </div>
 
-                            <div className="flex flex-col gap-1">
-                              <label className="text-[10px] font-bold text-slate-600">YOUR EMAIL</label>
-                              <input 
-                                type="email" 
-                                required
-                                value={emailAddress}
-                                onChange={(e) => setEmailAddress(e.target.value)}
-                                placeholder="e.g. johndoe@company.com"
-                                className="border-2 border-pixelDarkBlue p-2 text-xs font-bold text-slate-800 placeholder-gray-400 focus:outline-none focus:border-pixelPink"
-                              />
-                            </div>
+                          <div className="flex flex-col gap-1">
+                            <label className="text-[10px] font-bold text-slate-600">YOUR EMAIL</label>
+                            <input 
+                              type="email" 
+                              required
+                              value={emailAddress}
+                              onChange={(e) => setEmailAddress(e.target.value)}
+                              placeholder="e.g. johndoe@company.com"
+                              className="border-2 border-pixelDarkBlue p-2 text-xs font-bold text-slate-800 placeholder-gray-400 focus:outline-none focus:border-pixelPink"
+                            />
+                          </div>
 
-                            <div className="flex flex-col gap-1">
-                              <label className="text-[10px] font-bold text-slate-600">EMAIL SUBJECT</label>
-                              <input 
-                                type="text" 
-                                required
-                                value={emailSubject}
-                                onChange={(e) => setEmailSubject(e.target.value)}
-                                placeholder="e.g. Internship Role / Project Collaboration"
-                                className="border-2 border-pixelDarkBlue p-2 text-xs font-bold text-slate-800 placeholder-gray-400 focus:outline-none focus:border-pixelPink"
-                              />
-                            </div>
+                          <div className="flex flex-col gap-1">
+                            <label className="text-[10px] font-bold text-slate-600">EMAIL SUBJECT</label>
+                            <input 
+                              type="text" 
+                              required
+                              value={emailSubject}
+                              onChange={(e) => setEmailSubject(e.target.value)}
+                              placeholder="e.g. Internship Role / Project Collaboration"
+                              className="border-2 border-pixelDarkBlue p-2 text-xs font-bold text-slate-800 placeholder-gray-400 focus:outline-none focus:border-pixelPink"
+                            />
+                          </div>
 
-                            <div className="flex flex-col gap-1">
-                              <label className="text-[10px] font-bold text-slate-600">MESSAGE BODY</label>
-                              <textarea 
-                                required
-                                rows={3}
-                                value={emailMessage}
-                                onChange={(e) => setEmailMessage(e.target.value)}
-                                placeholder="Type your message details here..."
-                                className="border-2 border-pixelDarkBlue p-2 text-xs font-bold text-slate-800 placeholder-gray-400 focus:outline-none focus:border-pixelPink resize-none"
-                              />
-                            </div>
+                          <div className="flex flex-col gap-1">
+                            <label className="text-[10px] font-bold text-slate-600">MESSAGE BODY</label>
+                            <textarea 
+                              required
+                              rows={3}
+                              value={emailMessage}
+                              onChange={(e) => setEmailMessage(e.target.value)}
+                              placeholder="Type your message details here..."
+                              className="border-2 border-pixelDarkBlue p-2 text-xs font-bold text-slate-800 placeholder-gray-400 focus:outline-none focus:border-pixelPink resize-none"
+                            />
+                          </div>
 
-                            <button 
-                              type="submit" 
-                              className="pixel-btn w-full py-2.5 text-xs text-white font-extrabold cursor-pointer"
-                            >
-                              SEND EMAIL DIRECTLY
-                            </button>
-                          </form>
+                          <button 
+                            type="submit" 
+                            className="pixel-btn w-full py-2.5 text-xs text-white font-extrabold cursor-pointer"
+                          >
+                            SEND EMAIL DIRECTLY
+                          </button>
+                        </form>
 
-                          {/* Success message */}
-                          {pingHandshake && (
-                            <div className="mt-4 p-2 bg-green-50 border border-green-500 text-[10px] text-green-700 font-mono font-bold animate-fadeIn">
-                              {pingHandshake}
-                            </div>
-                          )}
-                        </div>
+                        {/* Success message */}
+                        {pingHandshake && (
+                          <div className="mt-4 p-2 bg-green-50 border border-green-500 text-[10px] text-green-700 font-mono font-bold animate-fadeIn">
+                            {pingHandshake}
+                          </div>
+                        )}
                       </div>
 
                     </div>
@@ -2873,7 +2169,7 @@
           {selectedProject && (
             <div className="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-[999] animate-fadeIn" onClick={() => setSelectedProject(null)}>
               <div 
-                className="bg-white border-4 border-black w-full max-w-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,0.15)] rounded-2xl overflow-y-auto max-h-[90vh] entrance-card"
+                className="bg-white border-4 border-black w-full max-w-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,0.15)] rounded-2xl overflow-hidden entrance-card"
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Modal Title bar */}
