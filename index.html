@@ -25,7 +25,8 @@
       theme: {
         extend: {
           fontFamily: {
-            pixel: ['system-ui', '-apple-system', 'sans-serif'],
+            pixel: ['"Pixelify Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"Pixelify Sans"', 'monospace'],
           },
           colors: {
             pixelBlue: '#d6e4ff',
@@ -1145,7 +1146,7 @@
       useEffect(() => {
         const body = document.body;
         if (stage === 'home') {
-          body.style.backgroundColor = '#e2e8f0'; // Gray-200
+          body.style.backgroundColor = '#1C2340';
         } else if (stage === 'console') {
           body.style.backgroundColor = activeTab === 'skills' || activeTab === 'experience' ? '#f0f4ff' : '#f0f9ff';
         } else {
