@@ -284,17 +284,46 @@
       opacity: 1;
     }
 
-    /* Fluid cross-dissolve transitions */
+    /* Premium 3D perspective space transitions */
     .workspace-fade {
-      transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+      transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: opacity, transform, filter;
     }
     .workspace-fade-hidden {
       opacity: 0;
-      transform: scale(0.985) translateY(8px);
+      transform: perspective(1500px) translateZ(-40px) translateY(12px) rotateX(2deg);
+      filter: blur(4px);
     }
     .workspace-fade-visible {
       opacity: 1;
-      transform: scale(1) translateY(0);
+      transform: perspective(1500px) translateZ(0px) translateY(0px) rotateX(0deg);
+      filter: blur(0);
+    }
+
+    /* 3D Hinged Drop for Navigation Bar */
+    @keyframes navbar-drop-3d {
+      0% {
+        opacity: 0;
+        transform: translateY(-85px) rotateX(-35deg) scale(0.95);
+        filter: blur(10px);
+      }
+      60% {
+        transform: translateY(5px) rotateX(4deg) scale(1.01);
+        filter: blur(2px);
+      }
+      85% {
+        transform: translateY(-2px) rotateX(-1deg) scale(0.998);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg) scale(1);
+        filter: blur(0);
+      }
+    }
+    .navbar-3d-entrance {
+      animation: navbar-drop-3d 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      transform-origin: top center;
+      opacity: 0;
     }
 
     /* CRT Television collapse and turn-on animations */
@@ -1041,7 +1070,7 @@
               if (sweep) {
                 const px = (cx / rect.width) * 100;
                 const py = (cy / rect.height) * 100;
-                sweep.style.background = `radial-gradient(circle at ${px}% ${py}%, rgba(255, 255, 255, 0.22) 0%, transparent 60%)`;
+                sweep.style.background = `radial-gradient(circle 120px at ${px}% ${py}%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%)`;
               }
             } else {
               // Return card to normal
@@ -1553,36 +1582,39 @@
             <div className="flex-grow flex flex-col p-4 md:p-8 relative w-full max-w-full">
               
               {/* Recruiter Tab Navigation Header (5 Consolidated Tabs) */}
-              <div className="w-full flex flex-col sm:flex-row justify-between items-center bg-white border-4 border-pixelDarkBlue p-4 gap-4 mb-6 shadow">
-                <div className="flex flex-wrap items-center gap-2">
-                  {[
-                    { id: 'about', label: 'ABOUT ME' },
-                    { id: 'projects', label: 'PROJECTS' },
-                    { id: 'skills', label: 'SKILLS' },
-                    { id: 'experience', label: 'EXPERIENCE & LEADERSHIP' },
-                    { id: 'contact', label: 'CONTACT' }
-                  ].map(tab => (
-                    <button 
-                      key={tab.id}
-                      onClick={() => handleTabSwitchRequest(tab.id)}
-                      className={`px-3.5 py-1.5 text-xs font-extrabold border-2 transition-all workspace-tab ${
-                        activeTab === tab.id 
-                          ? 'bg-pixelDarkBlue text-white border-pixelDarkBlue' 
-                          : 'bg-white text-pixelDarkBlue border-pixelDarkBlue hover:bg-slate-50'
-                      }`}
-                      disabled={isTransitioning}
-                    >
-                      [ {tab.label} ]
-                    </button>
-                  ))}
+              <div className="w-full flex flex-col sm:flex-row justify-between items-center bg-white border-4 border-pixelDarkBlue p-4 gap-4 mb-6 shadow navbar-3d-entrance tilt-card">
+                <div className="light-sweep"></div>
+                <div className="tilt-card-inner flex flex-col sm:flex-row justify-between items-center w-full gap-4">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {[
+                      { id: 'about', label: 'ABOUT ME' },
+                      { id: 'projects', label: 'PROJECTS' },
+                      { id: 'skills', label: 'SKILLS' },
+                      { id: 'experience', label: 'EXPERIENCE & LEADERSHIP' },
+                      { id: 'contact', label: 'CONTACT' }
+                    ].map(tab => (
+                      <button 
+                        key={tab.id}
+                        onClick={() => handleTabSwitchRequest(tab.id)}
+                        className={`px-3.5 py-1.5 text-xs font-extrabold border-2 transition-all workspace-tab ${
+                          activeTab === tab.id 
+                            ? 'bg-pixelDarkBlue text-white border-pixelDarkBlue' 
+                            : 'bg-white text-pixelDarkBlue border-pixelDarkBlue hover:bg-slate-50'
+                        }`}
+                        disabled={isTransitioning}
+                      >
+                        [ {tab.label} ]
+                      </button>
+                    ))}
+                  </div>
+                  <button 
+                    onClick={handleDisconnect}
+                    className="pixel-btn px-5 py-2 text-xs sm:text-sm font-extrabold text-white hover:brightness-110 shrink-0"
+                    disabled={isTransitioning}
+                  >
+                    DISCONNECT
+                  </button>
                 </div>
-                <button 
-                  onClick={handleDisconnect}
-                  className="pixel-btn px-5 py-2 text-xs sm:text-sm font-extrabold text-white hover:brightness-110 shrink-0"
-                  disabled={isTransitioning}
-                >
-                  DISCONNECT
-                </button>
               </div>
 
               {/* Viewport content wrapped with CRT collapse and cross-fade animations */}
