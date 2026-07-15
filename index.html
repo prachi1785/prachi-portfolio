@@ -1662,44 +1662,30 @@
                 />
 
                 {/* Floating skill balloon blocks (Mockup string-aligned elements) */}
-                <div className="absolute top-12 left-[8%] flex flex-col items-center select-none z-10 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group">
-                  <div className="w-px h-12 border-l border-dotted border-white/20"></div>
-                  <div className="bg-[#15003c]/90 border border-pink-400/50 p-1 px-2 text-[8px] font-bold text-white font-mono rounded shadow-sm group-hover:border-pink-400 group-hover:shadow-[0px_0px_8px_rgba(244,114,182,0.6)]">
-                    React
-                  </div>
-                </div>
-
-                <div className="absolute top-24 left-[18%] flex flex-col items-center select-none z-10 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group" style={{ animationDelay: '0.4s' }}>
-                  <div className="w-px h-10 border-l border-dotted border-white/20"></div>
-                  <div className="bg-[#15003c]/90 border border-cyan-400/50 p-1 px-2 text-[8px] font-bold text-white font-mono rounded shadow-sm group-hover:border-cyan-400 group-hover:shadow-[0px_0px_8px_rgba(34,211,238,0.6)]">
+                <div className="absolute top-12 left-[14%] flex flex-col items-center select-none z-10 animate-npcIdle">
+                  <div className="w-px h-16 border-l-2 border-dotted border-blue-300/40"></div>
+                  <div className="bg-[#15003c]/90 border-2 border-blue-400 p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     JSX
                   </div>
                 </div>
 
-                <div className="absolute top-12 left-[30%] flex flex-col items-center select-none z-10 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group" style={{ animationDelay: '0.8s' }}>
-                  <div className="w-px h-14 border-l border-dotted border-white/20"></div>
-                  <div className="bg-[#15003c]/90 border border-pink-400/50 p-1 px-2 text-[8px] font-bold text-white font-mono rounded shadow-sm group-hover:border-pink-400 group-hover:shadow-[0px_0px_8px_rgba(244,114,182,0.6)]">
+                <div className="absolute top-4 left-[28%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '0.4s' }}>
+                  <div className="w-px h-12 border-l-2 border-dotted border-pink-300/40"></div>
+                  <div className="bg-[#15003c]/90 border-2 border-pink-400 p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     CRO
                   </div>
                 </div>
 
-                <div className="absolute top-28 left-[42%] flex flex-col items-center select-none z-10 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group" style={{ animationDelay: '1.2s' }}>
-                  <div className="w-px h-12 border-l border-dotted border-white/20"></div>
-                  <div className="bg-[#15003c]/90 border border-purple-400/50 p-1 px-2 text-[8px] font-bold text-white font-mono rounded shadow-sm group-hover:border-purple-400 group-hover:shadow-[0px_0px_8px_rgba(168,85,247,0.6)]">
-                    Node.js
-                  </div>
-                </div>
-
-                <div className="absolute top-10 right-[30%] flex flex-col items-center select-none z-10 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group" style={{ animationDelay: '1.6s' }}>
-                  <div className="w-px h-16 border-l border-dotted border-white/20"></div>
-                  <div className="bg-[#15003c]/90 border border-yellow-400/50 p-1 px-2 text-[8px] font-bold text-white font-mono rounded shadow-sm group-hover:border-yellow-400 group-hover:shadow-[0px_0px_8px_rgba(253,224,71,0.6)]">
+                <div className="absolute top-6 right-[28%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '0.8s' }}>
+                  <div className="w-px h-14 border-l-2 border-dotted border-blue-300/40"></div>
+                  <div className="bg-[#15003c]/90 border-2 border-blue-400 p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     KPI
                   </div>
                 </div>
 
-                <div className="absolute top-22 right-[18%] flex flex-col items-center select-none z-10 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group" style={{ animationDelay: '2.0s' }}>
-                  <div className="w-px h-10 border-l border-dotted border-white/20"></div>
-                  <div className="bg-[#15003c]/90 border border-pink-400/50 p-1 px-2 text-[8px] font-bold text-white font-mono rounded shadow-sm group-hover:border-pink-400 group-hover:shadow-[0px_0px_8px_rgba(244,114,182,0.6)]">
+                <div className="absolute top-20 right-[18%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '1.2s' }}>
+                  <div className="w-px h-12 border-l-2 border-dotted border-pink-300/40"></div>
+                  <div className="bg-[#15003c]/90 border-2 border-pink-400 p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     3SX
                   </div>
                 </div>
@@ -1718,13 +1704,22 @@
                        clipPath: 'polygon(0 85%, 5% 85%, 5% 45%, 10% 45%, 10% 65%, 14% 65%, 14% 35%, 22% 35%, 22% 75%, 26% 75%, 26% 25%, 34% 25%, 34% 65%, 38% 65%, 38% 50%, 46% 50%, 46% 75%, 50% 75%, 50% 15%, 58% 15%, 58% 55%, 66% 55%, 66% 30%, 74% 30%, 74% 75%, 78% 75%, 78% 10%, 86% 10%, 86% 45%, 92% 45%, 92% 30%, 96% 30%, 96% 85%, 100% 85%, 100% 100%, 0 100%)'
                      }}></div>
 
+                {/* Setting/Rising sun behind the bridge */}
+                <div className="absolute bottom-[60px] left-1/2 -translate-x-1/2 w-20 h-10 bg-[#ffd09b]/50 rounded-t-full blur-[1px] pointer-events-none select-none"></div>
+
                 {/* Layer 3: Foreground Platform */}
                 <div className="city-skyline text-[#07011d]"></div>
                 
                 {/* Foreground platform stone brick layout */}
                 <div className="ground-layer">
-                  {/* Center Wooden bridge section */}
-                  <div className="absolute top-[-6px] left-[40%] right-[40%] h-2.5 bg-[#b45309] border-t-2 border-b-2 border-[#07011d] z-10"></div>
+                  {/* Center Wooden bridge section with rail posts */}
+                  <div className="absolute top-[-6px] left-[40%] right-[40%] h-2.5 bg-[#b45309] border-t-2 border-b-2 border-[#07011d] z-10">
+                    <div className="absolute top-[-6px] left-0 w-1.5 h-3 bg-[#b45309] border border-[#07011d]"></div>
+                    <div className="absolute top-[-6px] left-1/4 w-1.5 h-3 bg-[#b45309] border border-[#07011d]"></div>
+                    <div className="absolute top-[-6px] left-2/4 w-1.5 h-3 bg-[#b45309] border border-[#07011d]"></div>
+                    <div className="absolute top-[-6px] left-3/4 w-1.5 h-3 bg-[#b45309] border border-[#07011d]"></div>
+                    <div className="absolute top-[-6px] right-0 w-1.5 h-3 bg-[#b45309] border border-[#07011d]"></div>
+                  </div>
                   {/* Micro brick details overlay */}
                   <div className="absolute inset-0 opacity-15 pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, #fff 1px, transparent 1px), linear-gradient(#fff 1px, transparent 1px)', backgroundSize: '12px 12px' }}></div>
                 </div>
@@ -1738,14 +1733,21 @@
                   <span className="text-[10px] font-extrabold text-white tracking-widest">SELECT</span>
                 </div>
 
-                {/* Bottom Left: Retro Terminal status panel */}
+                {/* Bottom Left: Retro Terminal status panel with signal bars */}
                 <div className="absolute bottom-[72px] left-6 z-10 font-mono text-[9px] font-bold text-[#4ade80] bg-[#07011d]/90 border-2 border-[#1e3a8a] p-2 flex flex-col gap-1 select-none pointer-events-none rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] w-[120px]">
                   <div className="text-[#93c5fd] border-b border-[#1e3a8a] pb-0.5 text-[8px] flex items-center justify-between font-extrabold">
                     <span>TERMINAL</span>
                     <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-ping"></span>
                   </div>
                   <div>🟢 STATUS: ONLINE</div>
-                  <div>📶 PING: 12ms</div>
+                  <div className="flex items-center justify-between">
+                    <span>📶 PING: 12ms</span>
+                    <div className="flex items-end gap-0.5 h-2">
+                      <div className="w-0.5 h-1 bg-[#4ade80]"></div>
+                      <div className="w-0.5 h-1.5 bg-[#4ade80]"></div>
+                      <div className="w-0.5 h-2 bg-[#4ade80]"></div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Bottom Right: Inventory status panel */}
@@ -1815,33 +1817,47 @@
                   
                   {/* Left Character (DEV NPC) */}
                   <div onClick={cycleLeftSpeech} className="flex flex-col items-center cursor-pointer group pointer-events-auto animate-npcIdle">
-                    <div className="speech-bubble mb-2 group-hover:scale-105 transition-transform duration-100 text-xs font-bold">
+                    {/* Retro Speech Bubble with tail pointer */}
+                    <div className="bg-white border-2 border-[#07011d] p-1 px-2.5 rounded mb-2.5 relative shadow-sm text-xs select-none font-bold">
                       {leftDialogs[leftIndex]}
+                      {/* Speech bubble tail border & fill */}
+                      <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-[#07011d]"></div>
+                      <div className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-t-[5px] border-t-white"></div>
                     </div>
-                    <div className="w-12 h-16 bg-blue-300 border-2 border-black rounded-sm relative shadow group-hover:bg-blue-200 transition-colors">
-                      <div className="w-8 h-8 bg-pink-200 mx-auto mt-1 border-b-2 border-black relative">
-                        <div className="absolute top-3 left-1 w-1.5 h-1.5 bg-black" />
-                        <div className="absolute top-3 right-1 w-1.5 h-1.5 bg-black" />
-                      </div>
-                      <div className="w-full h-4 bg-white mt-auto flex justify-center items-center">
-                        <span className="text-[9px] font-extrabold text-slate-500">DEV</span>
-                      </div>
+                    {/* Square Face Block */}
+                    <div className="w-10 h-10 bg-[#a5b4fc] border-2 border-[#07011d] relative flex items-center justify-center shadow-md">
+                      {/* Eyes */}
+                      <div className="absolute top-3.5 left-2 w-1.5 h-1.5 bg-[#07011d]"></div>
+                      <div className="absolute top-3.5 right-2 w-1.5 h-1.5 bg-[#07011d]"></div>
+                      {/* Blush/Mouth */}
+                      <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-3.5 h-1.5 bg-[#f472b6]/55 rounded-sm"></div>
+                    </div>
+                    {/* Platform Label */}
+                    <div className="w-10 h-4 bg-[#1e40af] border-2 border-t-0 border-[#07011d] flex items-center justify-center font-mono shadow-sm">
+                      <span className="text-[7px] font-black text-white tracking-wider">DEV</span>
                     </div>
                   </div>
 
                   {/* Right Character (ANALYST NPC) */}
                   <div onClick={cycleRightSpeech} className="flex flex-col items-center cursor-pointer group pointer-events-auto animate-npcIdle" style={{ animationDelay: '0.5s' }}>
-                    <div className="speech-bubble mb-2 group-hover:scale-105 transition-transform duration-100 text-xs font-bold">
+                    {/* Retro Speech Bubble with tail pointer */}
+                    <div className="bg-white border-2 border-[#07011d] p-1 px-2.5 rounded mb-2.5 relative shadow-sm text-xs select-none font-bold">
                       {rightDialogs[rightIndex]}
+                      {/* Speech bubble tail border & fill */}
+                      <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-[#07011d]"></div>
+                      <div className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-t-[5px] border-t-white"></div>
                     </div>
-                    <div className="w-12 h-16 bg-blue-800 border-2 border-black rounded-sm relative shadow group-hover:bg-blue-700 transition-colors">
-                      <div className="w-8 h-8 bg-orange-200 mx-auto mt-1 border-b-2 border-black relative">
-                        <div className="absolute top-3 left-1.5 w-1.5 h-1.5 bg-black" />
-                        <div className="absolute top-3 right-1.5 w-1.5 h-1.5 bg-black" />
-                      </div>
-                      <div className="w-full h-4 bg-gray-400 mt-auto flex justify-center items-center">
-                        <span className="text-[9px] font-extrabold text-slate-200">ANALYST</span>
-                      </div>
+                    {/* Square Face Block */}
+                    <div className="w-10 h-10 bg-[#fde047] border-2 border-[#07011d] relative flex items-center justify-center shadow-md">
+                      {/* Eyes */}
+                      <div className="absolute top-3.5 left-2.5 w-1.5 h-1.5 bg-[#07011d]"></div>
+                      <div className="absolute top-3.5 right-2.5 w-1.5 h-1.5 bg-[#07011d]"></div>
+                      {/* Blush/Mouth */}
+                      <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-3.5 h-1.5 bg-[#ef4444]/45 rounded-sm"></div>
+                    </div>
+                    {/* Platform Label */}
+                    <div className="w-10 h-4 bg-[#1e40af] border-2 border-t-0 border-[#07011d] flex items-center justify-center font-mono shadow-sm">
+                      <span className="text-[7px] font-black text-white tracking-wider">ANALYST</span>
                     </div>
                   </div>
 
@@ -1849,8 +1865,10 @@
 
                 {/* Footer Watermark */}
                 <footer className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 font-bold font-mono">
-                  <div className="flex items-center gap-1.5 opacity-55 text-[9px] text-white select-none pointer-events-none">
-                    <span>&lt;/&gt; Developer: Prachi Chauhan <span className="animate-pulse">_</span></span>
+                  <div className="flex items-center gap-1.5 opacity-55 text-[9px] text-[#ff75c3] select-none pointer-events-none">
+                    <span>◆</span>
+                    <span className="text-white">&lt;/&gt; Developer: Prachi Chauhan</span>
+                    <span>◆</span>
                   </div>
                 </footer>
             </div>
