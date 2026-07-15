@@ -1607,16 +1607,23 @@
               name: emailName,
               email: emailAddress,
               _subject: emailSubject,
-              message: emailMessage
+              message: emailMessage,
+              _captcha: "false",
+              _template: "table"
             })
           });
           
           if (response.ok) {
-            setPingHandshake(`[MESSAGE RECEIVED DIRECTLY! THANK YOU!]`);
-            setEmailName('');
-            setEmailAddress('');
-            setEmailSubject('');
-            setEmailMessage('');
+            const data = await response.json();
+            if (data.success === 'false' || data.success === false || (data.message && data.message.toLowerCase().includes('activate'))) {
+              setPingHandshake(`[ACTIVATION REQUIRED: Check prachichauhan1785@gmail.com to activate FormSubmit!]`);
+            } else {
+              setPingHandshake(`[MESSAGE RECEIVED DIRECTLY! THANK YOU!]`);
+              setEmailName('');
+              setEmailAddress('');
+              setEmailSubject('');
+              setEmailMessage('');
+            }
           } else {
             setPingHandshake(`[FALLING BACK TO LOCAL MAIL...]`);
             window.location.href = `mailto:prachichauhan1785@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailMessage)}`;
@@ -1634,7 +1641,7 @@
           setEmailMessage('');
         }
         
-        setTimeout(() => setPingHandshake(null), 5000);
+        setTimeout(() => setPingHandshake(null), 8000);
       };
 
       // Prachi's leadership role descriptions
