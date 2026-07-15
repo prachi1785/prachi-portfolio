@@ -51,8 +51,9 @@
       margin: 0 !important;
       padding: 0 !important;
       width: 100% !important;
-      height: 100% !important;
+      min-height: 100% !important;
       overflow-x: hidden !important;
+      overflow-y: auto !important;
     }
 
     * {
@@ -1779,13 +1780,13 @@
                             {/* Clicking avatar opens contact links */}
                             <div 
                               onClick={() => handleTabSwitchRequest('contact')}
-                              className="w-18 h-18 bg-white border-2 border-pixelDarkBlue relative shrink-0 cursor-pointer active:scale-95 transition-transform overflow-hidden shadow-sm hover:scale-102"
+                              className="w-16 h-16 bg-white border-2 border-pixelDarkBlue relative shrink-0 cursor-pointer active:scale-95 transition-transform overflow-hidden shadow-sm hover:scale-102"
                             >
                               <div className="pixel-window-header absolute top-0 left-0 w-full z-10"></div>
                               <img 
                                 src="profile_avatar.jpg" 
                                 alt="Memoji Avatar"
-                                className="w-full h-full object-cover pt-1.5"
+                                className="w-full h-full object-cover pt-1.5 absolute inset-0"
                               />
                             </div>
                             
