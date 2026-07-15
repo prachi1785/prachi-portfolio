@@ -375,17 +375,42 @@
       animation: bird-fly 30s linear infinite;
     }
 
+    @font-face {
+      font-family: 'Pixeboy';
+      src: url('https://raw.githubusercontent.com/ProValarous/TikTokToe-Game/main/Pixeboy.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    .font-logo {
+      font-family: 'Pixeboy', sans-serif !important;
+    }
+    .font-subtitle {
+      font-family: 'Press Start 2P', monospace !important;
+    }
+    .font-button {
+      font-family: 'Press Start 2P', monospace !important;
+      font-weight: bold !important;
+    }
+    .font-hud {
+      font-family: 'Press Start 2P', monospace !important;
+    }
+    .font-label {
+      font-family: 'Silkscreen', monospace !important;
+    }
+
     .pixel-hero-logo {
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-family: 'Press Start 2P', cursive !important;
+      font-family: 'Pixeboy', sans-serif !important;
       text-transform: uppercase;
-      line-height: 1.25;
-      letter-spacing: -0.04em;
+      line-height: 0.9;
+      letter-spacing: 0.05em;
     }
     .pixel-hero-text-prachi {
-      font-size: clamp(1.8rem, 7.2vw, 3.8rem);
+      font-size: clamp(3.8rem, 13vw, 7.5rem);
       background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 22%, #FF63C3 22%, #e23d9f 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -398,7 +423,7 @@
         drop-shadow(4px 4px 0px #1C2340);
     }
     .pixel-hero-text-chauhan {
-      font-size: clamp(1.8rem, 7.2vw, 3.8rem);
+      font-size: clamp(3.8rem, 13vw, 7.5rem);
       background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 22%, #59C3FF 22%, #1fa1eb 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -1664,7 +1689,7 @@
 
                 {/* Floating skill balloon blocks (Mockup string-aligned elements) */}
                 <div className="absolute top-12 left-[14%] flex flex-col items-center select-none z-10 animate-npcIdle">
-                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
+                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-label rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     JSX
                   </div>
                   <div className="w-px h-16 border-l-2 border-dotted border-blue-400/40"></div>
@@ -1672,7 +1697,7 @@
                 </div>
 
                 <div className="absolute top-4 left-[28%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '0.4s' }}>
-                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
+                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-label rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     CRO
                   </div>
                   <div className="w-px h-12 border-l-2 border-dotted border-pink-300/40"></div>
@@ -1680,7 +1705,7 @@
                 </div>
 
                 <div className="absolute top-6 right-[28%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '0.8s' }}>
-                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
+                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-label rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     KPI
                   </div>
                   <div className="w-px h-14 border-l-2 border-dotted border-blue-300/40"></div>
@@ -1688,7 +1713,7 @@
                 </div>
 
                 <div className="absolute top-20 right-[18%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '1.2s' }}>
-                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
+                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-label rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     3SX
                   </div>
                   <div className="w-px h-12 border-l-2 border-dotted border-pink-300/40"></div>
@@ -1730,16 +1755,16 @@
                 </div>
 
                 {/* D-Pad Select System status indicator */}
-                <div className="absolute top-6 left-8 flex items-center gap-2 z-10 select-none font-mono">
+                <div className="absolute top-6 left-8 flex items-center gap-2 z-10 select-none font-hud">
                   <svg className="w-5.5 h-5.5" viewBox="0 0 24 24" fill="none">
                     <path d="M8 2H16V8H22V16H16V22H8V16H2V8H8V2Z" fill="#8b5cf6" stroke="#1C2340" strokeWidth="2.5" strokeLinejoin="miter"/>
                     <rect x="11" y="11" width="2" height="2" fill="white"/>
                   </svg>
-                  <span className="text-[10px] font-extrabold text-white tracking-widest">SELECT</span>
+                  <span className="text-[8px] font-extrabold text-white tracking-widest">SELECT</span>
                 </div>
 
                 {/* Bottom Left: Retro Terminal status panel with signal bars */}
-                <div className="absolute bottom-[72px] left-6 z-10 font-mono text-[9px] font-bold text-[#4ade80] bg-[#23284A]/95 border-2 border-[#1C2340] p-2 flex flex-col gap-1.5 select-none pointer-events-none rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] w-[125px]">
+                <div className="absolute bottom-[72px] left-6 z-10 font-hud text-[6.5px] font-bold text-[#4ade80] bg-[#23284A]/95 border-2 border-[#1C2340] p-2 flex flex-col gap-1.5 select-none pointer-events-none rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] w-[125px]">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-[#4ade80] rounded-sm"></span>
                     <span>STATUS: ONLINE</span>
@@ -1758,7 +1783,7 @@
                 </div>
 
                 {/* Bottom Right: Inventory status panel */}
-                <div className="absolute bottom-[72px] right-6 z-10 font-mono text-[9px] font-bold text-white bg-[#23284A]/95 border-2 border-[#1C2340] p-2 flex flex-col gap-1.5 select-none pointer-events-none rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] w-[125px]">
+                <div className="absolute bottom-[72px] right-6 z-10 font-hud text-[6.5px] font-bold text-white bg-[#23284A]/95 border-2 border-[#1C2340] p-2 flex flex-col gap-1.5 select-none pointer-events-none rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] w-[125px]">
                   <div className="flex items-center gap-1.5 text-white">
                     <svg className="w-2.5 h-2.5 text-[#59C3FF]" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2L2 7L12 12L22 7L12 2Z M2 17L12 22L22 17 M2 12L12 17L22 12" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
@@ -1774,8 +1799,8 @@
                 </div>
 
                 {/* Health Bar status overlay */}
-                <div className="absolute top-6 right-8 z-10 bg-[#23284A]/95 border-2 border-[#1C2340] p-1.5 px-3 flex items-center gap-2 rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] select-none">
-                  <span className="text-[9px] font-extrabold text-[#93c5fd] tracking-wider font-mono">HEALTH:</span>
+                <div className="absolute top-6 right-8 z-10 bg-[#23284A]/95 border-2 border-[#1C2340] p-1.5 px-3 flex items-center gap-2 rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] select-none font-hud">
+                  <span className="text-[7.5px] font-extrabold text-[#93c5fd] tracking-wider">HEALTH:</span>
                   <div className="flex gap-1 text-xs">
                     <span className="text-pink-500 animate-pulse">♥</span>
                     <span className="text-pink-500 animate-pulse" style={{ animationDelay: '0.2s' }}>♥</span>
@@ -1796,15 +1821,15 @@
                       <div className="flex flex-col md:flex-row gap-6 mt-4 justify-center">
                         <div className="max-w-[500px] splash-subtitle-container flex flex-col items-center">
                           {/* Engraved Retro Status Bar */}
-                          <div className="bg-[#23284A]/95 border-2 border-[#1C2340] p-2 px-5 flex items-center justify-center gap-3.5 rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] select-none max-w-md">
+                          <div className="bg-[#23284A]/95 border-2 border-[#1C2340] p-2.5 px-6 flex items-center justify-center gap-3.5 rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] select-none max-w-md font-subtitle">
                             <span className="text-[#FF63C3] text-xs">★</span>
-                            <span className="text-[9px] font-mono font-extrabold text-white tracking-widest uppercase">
+                            <span className="text-[7.5px] font-extrabold text-white tracking-widest uppercase">
                               BUSINESS ANALYST & WEB DEVELOPER
                             </span>
                             <span className="text-[#FF63C3] text-xs">★</span>
                           </div>
                           
-                          <p className="text-[10px] font-mono font-bold text-[#1C2340] mt-6 select-none">
+                          <p className="text-[7.5px] font-bold text-[#1C2340] mt-6 select-none font-subtitle">
                             Press <span className="text-[#FF63C3] font-extrabold uppercase">START</span> to boot telemetry workspaces.
                           </p>
                         </div>
@@ -1815,7 +1840,7 @@
                   {/* Nintendo Pill start button */}
                   <button 
                     onClick={handleStartClick}
-                    className="pixel-btn px-14 py-3 mt-2 text-white text-xs font-extrabold tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[6px_6px_0px_0px_rgba(28,35,64,0.35)] animate-pulse"
+                    className="pixel-btn px-14 py-3 mt-2 text-white text-[9px] tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[6px_6px_0px_0px_rgba(28,35,64,0.35)] animate-pulse font-button"
                     style={{
                       background: 'linear-gradient(to bottom, #ff75c3 0%, #ff3b9a 100%)',
                       border: '3px solid #1C2340',
@@ -1846,7 +1871,7 @@
                       <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-3.5 h-1.5 bg-[#f472b6]/55 rounded-sm"></div>
                     </div>
                     {/* Platform Label - Blue Body platform */}
-                    <div className="w-10 h-4 bg-[#59C3FF] border-2 border-t-0 border-[#1C2340] flex items-center justify-center font-mono shadow-sm">
+                    <div className="w-10 h-4 bg-[#59C3FF] border-2 border-t-0 border-[#1C2340] flex items-center justify-center font-label shadow-sm">
                       <span className="text-[7px] font-black text-white tracking-wider">DEV</span>
                     </div>
                   </div>
@@ -1869,7 +1894,7 @@
                       <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-3.5 h-1.5 bg-[#ef4444]/45 rounded-sm"></div>
                     </div>
                     {/* Platform Label - Blue Body platform */}
-                    <div className="w-10 h-4 bg-[#59C3FF] border-2 border-t-0 border-[#1C2340] flex items-center justify-center font-mono shadow-sm">
+                    <div className="w-10 h-4 bg-[#59C3FF] border-2 border-t-0 border-[#1C2340] flex items-center justify-center font-label shadow-sm">
                       <span className="text-[7px] font-black text-white tracking-wider">ANALYST</span>
                     </div>
                   </div>
@@ -1877,8 +1902,8 @@
                 </div>
 
                 {/* Footer Watermark */}
-                <footer className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 font-bold font-mono">
-                  <div className="flex items-center gap-1.5 opacity-85 text-[9px] select-none pointer-events-none font-semibold">
+                <footer className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 font-bold font-label">
+                  <div className="flex items-center gap-1.5 opacity-85 text-[8px] select-none pointer-events-none font-semibold">
                     <span className="text-[#FF63C3]">★</span>
                     <span className="text-white">Developer: Prachi Chauhan</span>
                     <span className="text-[#FF63C3]">★</span>
