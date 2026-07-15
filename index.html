@@ -339,6 +339,14 @@
       transform-origin: center center;
     }
 
+    @keyframes ground-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-groundLoop {
+      animation: ground-scroll 0.8s linear infinite;
+    }
+
     .hero-title {
       font-size: clamp(3rem, 11vw, 6.5rem);
       line-height: 1.1;
@@ -927,6 +935,139 @@
       const [emailSubject, setEmailSubject] = useState('');
       const [emailMessage, setEmailMessage] = useState('');
       const [pingHandshake, setPingHandshake] = useState(null);
+
+      // Jumping Game state
+      const [gamePlaying, setGamePlaying] = useState(false);
+      const [gameOver, setGameOver] = useState(false);
+      const [gameScore, setGameScore] = useState(0);
+      const [highScore, setHighScore] = useState(() => {
+        try {
+          return parseInt(localStorage.getItem('prachi_high_score') || '0', 10);
+        } catch {
+          return 0;
+        }
+      });
+      const [isJumping, setIsJumping] = useState(false);
+      const [obstacleX, setObstacleX] = useState(100);
+      const [obstacleType, setObstacleType] = useState(0); // 0: cactus, 1: rock, 2: monitor
+
+      // Jump action
+      const handleGameJump = () => {
+        if (!gamePlaying) {
+          // Start game
+          setGamePlaying(true);
+          setGameOver(false);
+          setGameScore(0);
+          setObstacleX(100);
+          return;
+        }
+        if (gameOver) {
+          // Restart game
+          setGameOver(false);
+          setGameScore(0);
+          setObstacleX(100);
+          return;
+        }
+        if (isJumping) return;
+        setIsJumping(true);
+        // Play jump sound
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(150, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.15);
+          gain.gain.setValueAtTime(0.08, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.15);
+        } catch (e) {}
+
+        // Reset jump state after 600ms (standard jump curve time)
+        setTimeout(() => {
+          setIsJumping(false);
+        }, 600);
+      };
+
+      // Handle space bar jump keybind
+      useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (e.code === 'Space') {
+            if (activeTab === 'experience' && stage === 'console') {
+              e.preventDefault();
+              handleGameJump();
+            }
+          }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, [gamePlaying, gameOver, isJumping, activeTab, stage]);
+
+      // Obstacle & Score loop
+      useEffect(() => {
+        if (!gamePlaying || gameOver) return;
+        let animationFrameId;
+        let lastTime = performance.now();
+
+        const updateGame = (time) => {
+          const delta = time - lastTime;
+          lastTime = time;
+
+          setObstacleX(prev => {
+            let nextX = prev - 0.085 * delta; // speed factor
+            if (nextX <= -5) {
+              // Obstacle cleared!
+              setGameScore(s => {
+                const nextScore = s + 10;
+                if (nextScore > highScore) {
+                  setHighScore(nextScore);
+                  try {
+                    localStorage.setItem('prachi_high_score', nextScore.toString());
+                  } catch {}
+                }
+                return nextScore;
+              });
+              // Select random next obstacle type
+              setObstacleType(Math.floor(Math.random() * 3));
+              return 105; // spawn off-screen right
+            }
+
+            // Collision check!
+            if (nextX > 14 && nextX < 26) {
+              if (!isJumping) {
+                setGameOver(true);
+                // Play fail sound
+                try {
+                  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                  const osc = ctx.createOscillator();
+                  const gain = ctx.createGain();
+                  osc.type = 'sawtooth';
+                  osc.frequency.setValueAtTime(200, ctx.currentTime);
+                  osc.frequency.linearRampToValueAtTime(50, ctx.currentTime + 0.3);
+                  gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                  gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                  osc.connect(gain);
+                  gain.connect(ctx.destination);
+                  osc.start();
+                  osc.stop(ctx.currentTime + 0.3);
+                } catch (e) {}
+              }
+            }
+
+            return nextX;
+          });
+
+          if (!gameOver) {
+            animationFrameId = requestAnimationFrame(updateGame);
+          }
+        };
+
+        animationFrameId = requestAnimationFrame(updateGame);
+        return () => cancelAnimationFrame(animationFrameId);
+      }, [gamePlaying, gameOver, isJumping, highScore]);
 
       // Static cloud offsets for the Goals/Team dashboard
       const goalsClouds = [
@@ -1638,10 +1779,14 @@
                             {/* Clicking avatar opens contact links */}
                             <div 
                               onClick={() => handleTabSwitchRequest('contact')}
-                              className="w-16 h-16 bg-pixelPink border-2 border-pixelDarkBlue relative shrink-0 cursor-pointer active:scale-95 transition-transform hover:bg-pink-200"
+                              className="w-18 h-18 bg-white border-2 border-pixelDarkBlue relative shrink-0 cursor-pointer active:scale-95 transition-transform overflow-hidden shadow-sm hover:scale-102"
                             >
-                              <div className="pixel-window-header"></div>
-                              <div className="absolute inset-0 flex items-center justify-center text-xl pt-2">👋</div>
+                              <div className="pixel-window-header absolute top-0 left-0 w-full z-10"></div>
+                              <img 
+                                src="profile_avatar.jpg" 
+                                alt="Memoji Avatar"
+                                className="w-full h-full object-cover pt-1.5"
+                              />
                             </div>
                             
                             <div className="flex-1 bg-white border-2 border-pixelDarkBlue p-4 relative">
@@ -1967,22 +2112,82 @@
                           </div>
                         </div>
                       </section>
-                      {/* PROFILE PHOTO CARD */}
-                      <section className="card-container text-left entrance-card stagger-2 flex flex-col justify-between items-center p-6 bg-sky-50 shadow-sm relative overflow-hidden min-h-[360px] tilt-card" data-purpose="photo-section">
+                      {/* MINI JUMPING GAME CARD (Replaces Profile Photo Card) */}
+                      <section className="card-container text-left entrance-card stagger-2 flex flex-col justify-between items-center p-5 bg-sky-50 shadow-sm relative overflow-hidden min-h-[300px] tilt-card select-none" data-purpose="mini-game-section">
                         <div className="light-sweep"></div>
-                        <div className="tilt-card-inner flex flex-col justify-between h-full w-full items-center">
-                          <div className="pixel-cloud" style={{ width: goalsClouds[4].width, height: goalsClouds[4].height, top: `${goalsClouds[4].top}%`, left: `${goalsClouds[4].left}%` }}></div>
+                        <div className="tilt-card-inner flex flex-col justify-between h-full w-full">
                           
-                          <h2 className="pixel-header font-bold text-pixelDarkBlue uppercase tracking-wide w-full mb-4">PROFILE PHOTO</h2>
-                          
-                          <div className="flex-grow flex items-center justify-center relative select-none z-10 mb-2">
-                            <div className="w-40 h-40 bg-white border-4 border-pixelDarkBlue rounded-full overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,0.15)] relative hover:scale-105 transition-transform duration-300">
-                              <img 
-                                src="profile_avatar.jpg" 
-                                alt="Prachi Chauhan"
-                                className="w-full h-full object-cover"
-                              />
+                          <div className="flex justify-between items-center mb-2">
+                            <h2 className="pixel-header font-bold text-pixelDarkBlue uppercase tracking-wide">RUNNER TELEMETRY</h2>
+                            <div className="text-[10px] font-bold text-slate-700 font-mono flex gap-3">
+                              <span>HI: {String(highScore).padStart(4, '0')}</span>
+                              <span className="text-purple-700">SCORE: {String(gameScore).padStart(4, '0')}</span>
                             </div>
+                          </div>
+
+                          {/* Game screen viewport */}
+                          <div 
+                            onClick={handleGameJump}
+                            className="w-full flex-grow bg-white border-2 border-pixelDarkBlue relative overflow-hidden cursor-pointer flex flex-col justify-end"
+                            style={{ height: '170px' }}
+                          >
+                            <div className="absolute top-2 left-3 text-[9px] font-sans font-bold text-slate-400 select-none pointer-events-none">
+                              {!gamePlaying ? "CLICK SCREEN OR SPACEBAR TO START" : gameOver ? "GAME OVER! CLICK TO RESTART" : "SPACEBAR OR CLICK TO JUMP"}
+                            </div>
+
+                            {/* Pixel Sky Clouds */}
+                            <div className="absolute top-4 right-10 w-8 h-2 bg-slate-200" style={{ boxShadow: '4px 4px 0 0 #e2e8f0, -4px 4px 0 0 #e2e8f0' }}></div>
+                            <div className="absolute top-8 left-12 w-6 h-2 bg-slate-200 opacity-60" style={{ boxShadow: '3px 3px 0 0 #e2e8f0, -3px 3px 0 0 #e2e8f0' }}></div>
+
+                            {/* Ground Line */}
+                            <div className="w-full h-8 bg-slate-100 border-t-2 border-pixelDarkBlue relative z-10 flex items-center overflow-hidden">
+                              {/* Rolling Ground Dashes to simulate speed */}
+                              {gamePlaying && !gameOver && (
+                                <div className="flex gap-16 animate-groundLoop shrink-0 w-[200%] text-slate-300 font-bold select-none text-[8px] font-mono">
+                                  <span>. . . . . . . . . . . .</span>
+                                  <span>. . . . . . . . . . . .</span>
+                                  <span>. . . . . . . . . . . .</span>
+                                  <span>. . . . . . . . . . . .</span>
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Character (Runner) */}
+                            <div 
+                              className={`absolute left-[18%] bottom-[32px] w-8 h-8 z-20 flex items-center justify-center text-2xl transition-all duration-[600ms] ${
+                                isJumping ? 'translate-y-[-52px] rotate-[-12deg]' : 'translate-y-0'
+                              }`}
+                            >
+                              {gameOver ? "💥" : isJumping ? "🏃‍♀️" : "🏃‍♀️"}
+                            </div>
+
+                            {/* Obstacle */}
+                            {gamePlaying && !gameOver && (
+                              <div 
+                                className="absolute bottom-[32px] w-6 h-6 z-20 flex items-center justify-center text-lg pointer-events-none"
+                                style={{ left: `${obstacleX}%` }}
+                              >
+                                {obstacleType === 0 ? "🌵" : obstacleType === 1 ? "🪨" : "💻"}
+                              </div>
+                            )}
+                            
+                            {/* Start / Game Over overlay screens */}
+                            {!gamePlaying && (
+                              <div className="absolute inset-0 bg-slate-900/5 flex flex-col items-center justify-center z-30">
+                                <span className="text-xs font-bold text-pixelDarkBlue bg-yellow-300 border-2 border-pixelDarkBlue px-3 py-1.5 shadow-sm hover:scale-105 active:scale-95 transition-transform">
+                                  START MINI GAME
+                                </span>
+                              </div>
+                            )}
+
+                            {gameOver && (
+                              <div className="absolute inset-0 bg-red-500/10 flex flex-col items-center justify-center z-30">
+                                <span className="text-[10px] font-extrabold text-white bg-red-600 border-2 border-pixelDarkBlue px-2.5 py-1.5 shadow-sm">
+                                  PLAY AGAIN
+                                </span>
+                              </div>
+                            )}
+
                           </div>
                         </div>
                       </section>
