@@ -1607,8 +1607,24 @@
                   }}
                 />
 
+                {/* Twinkling tech domains in the sky background */}
+                <div className="absolute top-16 left-[15%] text-[9px] font-mono text-blue-400 opacity-60 animate-pulse pointer-events-none select-none">SELECT</div>
+                <div className="absolute top-36 left-[30%] text-[8px] font-mono text-purple-400 opacity-50 animate-pulse pointer-events-none select-none" style={{ animationDelay: '0.4s' }}>JSX</div>
+                <div className="absolute top-20 right-[25%] text-[9px] font-mono text-pink-400 opacity-55 animate-pulse pointer-events-none select-none" style={{ animationDelay: '0.8s' }}>CRO</div>
+                <div className="absolute top-44 right-[12%] text-[8px] font-mono text-indigo-400 opacity-40 animate-pulse pointer-events-none select-none" style={{ animationDelay: '1.2s' }}>KPI</div>
+
                 <div className="city-skyline text-blue-900"></div>
                 <div className="ground-layer"></div>
+
+                {/* Telemetry live status indicators */}
+                <div className="absolute bottom-[80px] left-6 z-10 font-mono text-[9px] font-bold text-blue-900 bg-white/70 border border-blue-900/35 p-1.5 flex flex-col gap-0.5 select-none pointer-events-none rounded shadow-sm">
+                  <div>• STATUS: ONLINE</div>
+                  <div>• PING: 12ms</div>
+                </div>
+                <div className="absolute bottom-[80px] right-6 z-10 font-mono text-[9px] font-bold text-blue-900 bg-white/70 border border-blue-900/35 p-1.5 flex flex-col gap-0.5 select-none pointer-events-none rounded shadow-sm">
+                  <div>• STACK: MERN</div>
+                  <div>• LOC: CSE-MUJ</div>
+                </div>
 
                 {/* Health Bar status overlay */}
                 <header className="absolute top-6 right-8 flex items-center gap-3 z-10 font-bold">
@@ -1636,7 +1652,7 @@
                             BUSINESS ANALYST & WEB DEVELOPER
                           </p>
                           <p className="text-xs text-blue-800 leading-normal font-bold">
-                            Interactive recruitment deck. Press START to boot telemetry workspaces.
+                            Press START to boot telemetry workspaces.
                           </p>
                         </div>
                       </div>
