@@ -14,11 +14,10 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   
-  <!-- Google Font: Press Start 2P (Fallback/Legacy) -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet"/>
-  
-  <!-- Pixeloid Sans Font from CDN -->
-  <link href="https://fonts.cdnfonts.com/css/pixeloid-sans" rel="stylesheet"/>
+  <!-- Google Fonts for Pixel Art Recreation -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind Config Customizations -->
   <script>
@@ -379,7 +378,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-family: 'Pixeloid Sans', sans-serif !important;
+      font-family: 'Pixelify Sans', sans-serif !important;
       text-transform: uppercase;
       line-height: 0.95;
       letter-spacing: 0.02em;
@@ -387,34 +386,34 @@
     }
     .pixel-hero-text-prachi {
       font-size: clamp(3.2rem, 11.5vw, 6.8rem);
-      background: linear-gradient(to bottom, #ffffff 0%, #ffffff 18%, #ff9cf0 18%, #ff52ad 100%);
+      background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 18%, #FF63C3 18%, #e23d9f 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
       filter: 
-        drop-shadow(2px 0px 0px #0b0f2d) 
-        drop-shadow(-2px 0px 0px #0b0f2d) 
-        drop-shadow(0px 2px 0px #0b0f2d) 
-        drop-shadow(0px -2px 0px #0b0f2d) 
-        drop-shadow(3px 3px 0px #0b0f2d);
+        drop-shadow(2px 0px 0px #1C2340) 
+        drop-shadow(-2px 0px 0px #1C2340) 
+        drop-shadow(0px 2px 0px #1C2340) 
+        drop-shadow(0px -2px 0px #1C2340) 
+        drop-shadow(3px 3px 0px #1C2340);
     }
     .pixel-hero-text-chauhan {
       font-size: clamp(3.2rem, 11.5vw, 6.8rem);
-      background: linear-gradient(to bottom, #ffffff 0%, #ffffff 18%, #7dd3fc 18%, #0284c7 100%);
+      background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 18%, #59C3FF 18%, #1fa1eb 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
       filter: 
-        drop-shadow(2px 0px 0px #0b0f2d) 
-        drop-shadow(-2px 0px 0px #0b0f2d) 
-        drop-shadow(0px 2px 0px #0b0f2d) 
-        drop-shadow(0px -2px 0px #0b0f2d) 
-        drop-shadow(3px 3px 0px #0b0f2d);
+        drop-shadow(2px 0px 0px #1C2340) 
+        drop-shadow(-2px 0px 0px #1C2340) 
+        drop-shadow(0px 2px 0px #1C2340) 
+        drop-shadow(0px -2px 0px #1C2340) 
+        drop-shadow(3px 3px 0px #1C2340);
     }
 
     /* Game background layers */
     .game-container {
-      background: linear-gradient(to bottom, #4f80e1 0%, #a275f0 35%, #fca4d3 60%, #ffd09b 80%, #15003c 100%);
+      background: linear-gradient(to bottom, #6EA8FF 0%, #9066eb 35%, #FFC4D9 65%, #ffd09b 82%, #1C2340 100%);
       image-rendering: pixelated;
       position: relative;
       overflow: hidden;
@@ -426,7 +425,7 @@
       left: 0;
       right: 0;
       height: 80px;
-      background-image: linear-gradient(transparent 20%, #07011d 20%);
+      background-image: linear-gradient(transparent 20%, #1C2340 20%);
       clip-path: polygon(0 85%, 5% 85%, 5% 45%, 10% 45%, 10% 65%, 14% 65%, 14% 35%, 22% 35%, 22% 75%, 26% 75%, 26% 25%, 34% 25%, 34% 65%, 38% 65%, 38% 50%, 46% 50%, 46% 75%, 50% 75%, 50% 15%, 58% 15%, 58% 55%, 66% 55%, 66% 30%, 74% 30%, 74% 75%, 78% 75%, 78% 10%, 86% 10%, 86% 45%, 92% 45%, 92% 30%, 96% 30%, 96% 85%, 100% 85%, 100% 100%, 0 100%);
       opacity: 0.95;
     }
@@ -437,7 +436,7 @@
       left: 0;
       right: 0;
       height: 60px;
-      background-color: #07011d;
+      background-color: #1C2340;
       border-top: 6px solid #4ade80;
     }
 
@@ -949,7 +948,7 @@
       const [hearts, setHearts] = useState(3);
       const [trophyClicks, setTrophyClicks] = useState(0);
       const [trophyBouncing, setTrophyBouncing] = useState(false);
-      const leftDialogs = ["😊", "Full Stack Dev!", "Next.js & React", "MongoDB Core", "DBMS architect", "Let's start!"];
+      const leftDialogs = ["🙂", "Full Stack Dev!", "Next.js & React", "MongoDB Core", "DBMS architect", "Let's start!"];
       const rightDialogs = ["❤️", "SQL Analyst!", "Business Case", "Excel & PowerBI", "Process Flow", "Ready player 1"];
       const [leftIndex, setLeftIndex] = useState(0);
       const [rightIndex, setRightIndex] = useState(0);
@@ -1665,31 +1664,35 @@
 
                 {/* Floating skill balloon blocks (Mockup string-aligned elements) */}
                 <div className="absolute top-12 left-[14%] flex flex-col items-center select-none z-10 animate-npcIdle">
-                  <div className="w-px h-16 border-l-2 border-dotted border-blue-300/40"></div>
-                  <div className="bg-[#15003c]/90 border-2 border-blue-400 p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
+                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     JSX
                   </div>
+                  <div className="w-px h-16 border-l-2 border-dotted border-blue-400/40"></div>
+                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-sm"></div>
                 </div>
 
                 <div className="absolute top-4 left-[28%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '0.4s' }}>
-                  <div className="w-px h-12 border-l-2 border-dotted border-pink-300/40"></div>
-                  <div className="bg-[#15003c]/90 border-2 border-pink-400 p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
+                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     CRO
                   </div>
+                  <div className="w-px h-12 border-l-2 border-dotted border-pink-300/40"></div>
+                  <div className="w-1.5 h-1.5 bg-pink-300 rounded-sm"></div>
                 </div>
 
                 <div className="absolute top-6 right-[28%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '0.8s' }}>
-                  <div className="w-px h-14 border-l-2 border-dotted border-blue-300/40"></div>
-                  <div className="bg-[#15003c]/90 border-2 border-blue-400 p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
+                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     KPI
                   </div>
+                  <div className="w-px h-14 border-l-2 border-dotted border-blue-300/40"></div>
+                  <div className="w-1.5 h-1.5 bg-blue-300 rounded-sm"></div>
                 </div>
 
                 <div className="absolute top-20 right-[18%] flex flex-col items-center select-none z-10 animate-npcIdle" style={{ animationDelay: '1.2s' }}>
-                  <div className="w-px h-12 border-l-2 border-dotted border-pink-300/40"></div>
-                  <div className="bg-[#15003c]/90 border-2 border-pink-400 p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
+                  <div className="bg-[#23284A] border-2 border-[#1C2340] p-1 px-3 text-[8px] font-extrabold text-white font-mono rounded shadow-[2px_2px_0px_0px_rgba(0,0,0,0.3)]">
                     3SX
                   </div>
+                  <div className="w-px h-12 border-l-2 border-dotted border-pink-300/40"></div>
+                  <div className="w-1.5 h-1.5 bg-pink-300 rounded-sm"></div>
                 </div>
 
                 {/* Layer 1: Distant City Skyline (Deep Faded) */}
@@ -1710,17 +1713,17 @@
                 <div className="absolute bottom-[60px] left-1/2 -translate-x-1/2 w-20 h-10 bg-[#ffd09b]/50 rounded-t-full blur-[1px] pointer-events-none select-none"></div>
 
                 {/* Layer 3: Foreground Platform */}
-                <div className="city-skyline text-[#07011d]"></div>
+                <div className="city-skyline text-[#1C2340]"></div>
                 
                 {/* Foreground platform stone brick layout */}
                 <div className="ground-layer">
                   {/* Center Wooden bridge section with rail posts */}
-                  <div className="absolute top-[-6px] left-[40%] right-[40%] h-2.5 bg-[#b45309] border-t-2 border-b-2 border-[#07011d] z-10">
-                    <div className="absolute top-[-6px] left-0 w-1.5 h-3 bg-[#b45309] border border-[#07011d]"></div>
-                    <div className="absolute top-[-6px] left-1/4 w-1.5 h-3 bg-[#b45309] border border-[#07011d]"></div>
-                    <div className="absolute top-[-6px] left-2/4 w-1.5 h-3 bg-[#b45309] border border-[#07011d]"></div>
-                    <div className="absolute top-[-6px] left-3/4 w-1.5 h-3 bg-[#b45309] border border-[#07011d]"></div>
-                    <div className="absolute top-[-6px] right-0 w-1.5 h-3 bg-[#b45309] border border-[#07011d]"></div>
+                  <div className="absolute top-[-6px] left-[40%] right-[40%] h-2.5 bg-[#b45309] border-t-2 border-b-2 border-[#1C2340] z-10">
+                    <div className="absolute top-[-6px] left-0 w-1.5 h-3 bg-[#b45309] border border-[#1C2340]"></div>
+                    <div className="absolute top-[-6px] left-1/4 w-1.5 h-3 bg-[#b45309] border border-[#1C2340]"></div>
+                    <div className="absolute top-[-6px] left-2/4 w-1.5 h-3 bg-[#b45309] border border-[#1C2340]"></div>
+                    <div className="absolute top-[-6px] left-3/4 w-1.5 h-3 bg-[#b45309] border border-[#1C2340]"></div>
+                    <div className="absolute top-[-6px] right-0 w-1.5 h-3 bg-[#b45309] border border-[#1C2340]"></div>
                   </div>
                   {/* Micro brick details overlay */}
                   <div className="absolute inset-0 opacity-15 pointer-events-none" style={{ backgroundImage: 'linear-gradient(90deg, #fff 1px, transparent 1px), linear-gradient(#fff 1px, transparent 1px)', backgroundSize: '12px 12px' }}></div>
@@ -1729,15 +1732,15 @@
                 {/* D-Pad Select System status indicator */}
                 <div className="absolute top-6 left-8 flex items-center gap-2 z-10 select-none font-mono">
                   <svg className="w-5.5 h-5.5" viewBox="0 0 24 24" fill="none">
-                    <path d="M8 2H16V8H22V16H16V22H8V16H2V8H8V2Z" fill="#8b5cf6" stroke="#07011d" strokeWidth="2.5" strokeLinejoin="miter"/>
+                    <path d="M8 2H16V8H22V16H16V22H8V16H2V8H8V2Z" fill="#8b5cf6" stroke="#1C2340" strokeWidth="2.5" strokeLinejoin="miter"/>
                     <rect x="11" y="11" width="2" height="2" fill="white"/>
                   </svg>
                   <span className="text-[10px] font-extrabold text-white tracking-widest">SELECT</span>
                 </div>
 
                 {/* Bottom Left: Retro Terminal status panel with signal bars */}
-                <div className="absolute bottom-[72px] left-6 z-10 font-mono text-[9px] font-bold text-[#4ade80] bg-[#07011d]/90 border-2 border-[#1e3a8a] p-2 flex flex-col gap-1 select-none pointer-events-none rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] w-[120px]">
-                  <div className="text-[#93c5fd] border-b border-[#1e3a8a] pb-0.5 text-[8px] flex items-center justify-between font-extrabold">
+                <div className="absolute bottom-[72px] left-6 z-10 font-mono text-[9px] font-bold text-[#4ade80] bg-[#23284A]/95 border-2 border-[#1C2340] p-2 flex flex-col gap-1 select-none pointer-events-none rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] w-[120px]">
+                  <div className="text-[#93c5fd] border-b border-[#1C2340] pb-0.5 text-[8px] flex items-center justify-between font-extrabold">
                     <span>TERMINAL</span>
                     <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-ping"></span>
                   </div>
@@ -1753,8 +1756,8 @@
                 </div>
 
                 {/* Bottom Right: Inventory status panel */}
-                <div className="absolute bottom-[72px] right-6 z-10 font-mono text-[9px] font-bold text-[#93c5fd] bg-[#07011d]/90 border-2 border-[#1e3a8a] p-2 flex flex-col gap-1 select-none pointer-events-none rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] w-[120px]">
-                  <div className="text-white border-b border-[#1e3a8a] pb-0.5 text-[8px] flex items-center justify-between font-extrabold">
+                <div className="absolute bottom-[72px] right-6 z-10 font-mono text-[9px] font-bold text-[#93c5fd] bg-[#23284A]/95 border-2 border-[#1C2340] p-2 flex flex-col gap-1 select-none pointer-events-none rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] w-[120px]">
+                  <div className="text-white border-b border-[#1C2340] pb-0.5 text-[8px] flex items-center justify-between font-extrabold">
                     <span>INVENTORY</span>
                     <span>🎒</span>
                   </div>
@@ -1763,7 +1766,7 @@
                 </div>
 
                 {/* Health Bar status overlay */}
-                <div className="absolute top-6 right-8 z-10 bg-[#07011d]/90 border-2 border-[#1e3a8a] p-1.5 px-3 flex items-center gap-2 rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] select-none">
+                <div className="absolute top-6 right-8 z-10 bg-[#23284A]/95 border-2 border-[#1C2340] p-1.5 px-3 flex items-center gap-2 rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] select-none">
                   <span className="text-[9px] font-extrabold text-[#93c5fd] tracking-wider font-mono">HEALTH:</span>
                   <div className="flex gap-1 text-xs">
                     <span className="text-pink-500 animate-pulse">♥</span>
@@ -1785,16 +1788,16 @@
                       <div className="flex flex-col md:flex-row gap-6 mt-4 justify-center">
                         <div className="max-w-[500px] splash-subtitle-container flex flex-col items-center">
                           {/* Engraved Retro Status Bar */}
-                          <div className="bg-[#07011d]/95 border-2 border-[#8b5cf6]/50 p-2 px-5 flex items-center justify-center gap-3.5 rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] select-none max-w-md">
-                            <span className="text-pink-400 text-xs animate-spin-slow">★</span>
+                          <div className="bg-[#23284A]/95 border-2 border-[#1C2340] p-2 px-5 flex items-center justify-center gap-3.5 rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,0.25)] select-none max-w-md">
+                            <span className="text-[#FF63C3] text-xs">★</span>
                             <span className="text-[9px] font-mono font-extrabold text-white tracking-widest uppercase">
                               BUSINESS ANALYST & WEB DEVELOPER
                             </span>
-                            <span className="text-pink-400 text-xs animate-spin-slow">★</span>
+                            <span className="text-[#FF63C3] text-xs">★</span>
                           </div>
                           
-                          <p className="text-[10px] font-mono font-bold text-blue-900 mt-6 select-none">
-                            Press <span className="text-pink-500 font-extrabold uppercase animate-pulse">START</span> to boot telemetry workspaces.
+                          <p className="text-[10px] font-mono font-bold text-[#1C2340] mt-6 select-none">
+                            Press <span className="text-[#FF63C3] font-extrabold uppercase">START</span> to boot telemetry workspaces.
                           </p>
                         </div>
                       </div>
@@ -1804,10 +1807,10 @@
                   {/* Nintendo Pill start button */}
                   <button 
                     onClick={handleStartClick}
-                    className="pixel-btn px-14 py-3 mt-2 text-white text-xs font-extrabold tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[6px_6px_0px_0px_rgba(7,1,29,0.3)] animate-pulse"
+                    className="pixel-btn px-14 py-3 mt-2 text-white text-xs font-extrabold tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[6px_6px_0px_0px_rgba(28,35,64,0.35)] animate-pulse"
                     style={{
                       background: 'linear-gradient(to bottom, #ff75c3 0%, #ff3b9a 100%)',
-                      border: '3px solid #07011d',
+                      border: '3px solid #1C2340',
                     }}
                   >
                     START ▶
@@ -1820,22 +1823,22 @@
                   {/* Left Character (DEV NPC) */}
                   <div onClick={cycleLeftSpeech} className="flex flex-col items-center cursor-pointer group pointer-events-auto animate-npcIdle">
                     {/* Retro Speech Bubble with tail pointer */}
-                    <div className="bg-white border-2 border-[#07011d] p-1 px-2.5 rounded mb-2.5 relative shadow-sm text-xs select-none font-bold">
+                    <div className="bg-white border-2 border-[#1C2340] p-1 px-2.5 rounded mb-2.5 relative shadow-sm text-xs select-none font-bold">
                       {leftDialogs[leftIndex]}
                       {/* Speech bubble tail border & fill */}
-                      <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-[#07011d]"></div>
+                      <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-[#1C2340]"></div>
                       <div className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-t-[5px] border-t-white"></div>
                     </div>
-                    {/* Square Face Block */}
-                    <div className="w-10 h-10 bg-[#a5b4fc] border-2 border-[#07011d] relative flex items-center justify-center shadow-md">
+                    {/* Square Face Block - Pink Head */}
+                    <div className="w-10 h-10 bg-[#FF63C3] border-2 border-[#1C2340] relative flex items-center justify-center shadow-md">
                       {/* Eyes */}
-                      <div className="absolute top-3.5 left-2 w-1.5 h-1.5 bg-[#07011d]"></div>
-                      <div className="absolute top-3.5 right-2 w-1.5 h-1.5 bg-[#07011d]"></div>
+                      <div className="absolute top-3.5 left-2 w-1.5 h-1.5 bg-[#1C2340]"></div>
+                      <div className="absolute top-3.5 right-2 w-1.5 h-1.5 bg-[#1C2340]"></div>
                       {/* Blush/Mouth */}
                       <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-3.5 h-1.5 bg-[#f472b6]/55 rounded-sm"></div>
                     </div>
-                    {/* Platform Label */}
-                    <div className="w-10 h-4 bg-[#1e40af] border-2 border-t-0 border-[#07011d] flex items-center justify-center font-mono shadow-sm">
+                    {/* Platform Label - Blue Body platform */}
+                    <div className="w-10 h-4 bg-[#59C3FF] border-2 border-t-0 border-[#1C2340] flex items-center justify-center font-mono shadow-sm">
                       <span className="text-[7px] font-black text-white tracking-wider">DEV</span>
                     </div>
                   </div>
@@ -1843,22 +1846,22 @@
                   {/* Right Character (ANALYST NPC) */}
                   <div onClick={cycleRightSpeech} className="flex flex-col items-center cursor-pointer group pointer-events-auto animate-npcIdle" style={{ animationDelay: '0.5s' }}>
                     {/* Retro Speech Bubble with tail pointer */}
-                    <div className="bg-white border-2 border-[#07011d] p-1 px-2.5 rounded mb-2.5 relative shadow-sm text-xs select-none font-bold">
+                    <div className="bg-white border-2 border-[#1C2340] p-1 px-2.5 rounded mb-2.5 relative shadow-sm text-xs select-none font-bold">
                       {rightDialogs[rightIndex]}
                       {/* Speech bubble tail border & fill */}
-                      <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-[#07011d]"></div>
+                      <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[6px] border-t-[#1C2340]"></div>
                       <div className="absolute bottom-[-4px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[3px] border-l-transparent border-r-[3px] border-r-transparent border-t-[5px] border-t-white"></div>
                     </div>
-                    {/* Square Face Block */}
-                    <div className="w-10 h-10 bg-[#fde047] border-2 border-[#07011d] relative flex items-center justify-center shadow-md">
+                    {/* Square Face Block - Yellow Head */}
+                    <div className="w-10 h-10 bg-[#fde047] border-2 border-[#1C2340] relative flex items-center justify-center shadow-md">
                       {/* Eyes */}
-                      <div className="absolute top-3.5 left-2.5 w-1.5 h-1.5 bg-[#07011d]"></div>
-                      <div className="absolute top-3.5 right-2.5 w-1.5 h-1.5 bg-[#07011d]"></div>
+                      <div className="absolute top-3.5 left-2.5 w-1.5 h-1.5 bg-[#1C2340]"></div>
+                      <div className="absolute top-3.5 right-2.5 w-1.5 h-1.5 bg-[#1C2340]"></div>
                       {/* Blush/Mouth */}
                       <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-3.5 h-1.5 bg-[#ef4444]/45 rounded-sm"></div>
                     </div>
-                    {/* Platform Label */}
-                    <div className="w-10 h-4 bg-[#1e40af] border-2 border-t-0 border-[#07011d] flex items-center justify-center font-mono shadow-sm">
+                    {/* Platform Label - Blue Body platform */}
+                    <div className="w-10 h-4 bg-[#59C3FF] border-2 border-t-0 border-[#1C2340] flex items-center justify-center font-mono shadow-sm">
                       <span className="text-[7px] font-black text-white tracking-wider">ANALYST</span>
                     </div>
                   </div>
@@ -1867,10 +1870,10 @@
 
                 {/* Footer Watermark */}
                 <footer className="absolute bottom-2 left-1/2 -translate-x-1/2 z-30 font-bold font-mono">
-                  <div className="flex items-center gap-1.5 opacity-55 text-[9px] text-[#ff75c3] select-none pointer-events-none">
-                    <span>◆</span>
-                    <span className="text-white">&lt;/&gt; Developer: Prachi Chauhan</span>
-                    <span>◆</span>
+                  <div className="flex items-center gap-1.5 opacity-85 text-[9px] select-none pointer-events-none font-semibold">
+                    <span className="text-[#FF63C3]">★</span>
+                    <span className="text-white">Developer: Prachi Chauhan</span>
+                    <span className="text-[#FF63C3]">★</span>
                   </div>
                 </footer>
             </div>
